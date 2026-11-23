@@ -89,3 +89,294 @@
   margin-left: 0.5em;
   font-weight: bold;
 }
+
+
+/* ==========================================================================
+   CODE-MASTER FIXES & POLISH
+   ========================================================================== */
+
+/* 1. Hero Title Centering */
+.header.home-header .header-background .titles {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  pointer-events: none !important;
+}
+
+.header.home-header .header-background .titles .title--upper {
+  text-align: center !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  display: block !important;
+  font-family: Bushcraft, sans-serif !important;
+}
+
+/* 2. Project Preview Images Visibility */
+.portfolio-item .item-image,
+.portfolio-item .item-image .image-website,
+.portfolio-item .item-image .image-app {
+  opacity: 1 !important;
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.portfolio-item .item-image img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 20px !important;
+  display: block !important;
+  box-shadow: 0 15px 35px rgba(28, 46, 87, 0.15) !important;
+  opacity: 1 !important;
+}
+
+/* 3. Secondary Button */
+.btn--secondary {
+  background: #ffffff !important;
+  color: #1c2e57 !important;
+  border: 2px solid #1c2e57 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-family: Lato, sans-serif !important;
+  font-size: 1.2em !important;
+  font-weight: 900 !important;
+  padding: 0.6em 2em !important;
+  border-radius: 5px !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
+.btn--secondary:hover {
+  background: #1c2e57 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 4. Fix Cabin Margin Collapse */
+.codemaster-content {
+  margin-top: 0 !important;
+  margin-bottom: 2em !important;
+}
+
+/* 5. Process Section Text Overflow Fix */
+.linear-content {
+  overflow: visible !important;
+}
+
+.linear-block {
+  max-width: 100% !important;
+  word-wrap: break-word !important;
+}
+
+.linear-block h4 {
+  font-size: clamp(1.8em, 3vw, 2.3em) !important;
+  line-height: 120% !important;
+  word-break: break-word !important;
+}
+
+/* 6. Experience & Skills Section Styles */
+.cm-section {
+  padding: 5em 0;
+  position: relative;
+}
+
+.cm-experience-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  max-width: 900px;
+  margin: 2em auto 0;
+}
+
+.cm-experience-card {
+  background: #ffffff;
+  padding: 2.2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(28, 46, 87, 0.08);
+  border: 1px solid rgba(28, 46, 87, 0.1);
+}
+
+.cm-exp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5em;
+  margin-bottom: 1.2em;
+  flex-wrap: wrap;
+}
+
+.cm-exp-company {
+  font-size: 1.6em;
+  font-family: Bushcraft, sans-serif;
+  color: #1c2e57;
+  margin-bottom: 0.2em;
+}
+
+.cm-exp-role {
+  font-size: 1.1em;
+  font-weight: 900;
+  color: #ff6563;
+  font-family: Lato, sans-serif;
+}
+
+.cm-exp-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  flex-wrap: wrap;
+}
+
+.cm-exp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.85em;
+  font-weight: 700;
+  background: #f1f3f7;
+  color: #1c2e57;
+  padding: 0.35em 0.75em;
+  border-radius: 4px;
+}
+
+.cm-exp-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.cm-exp-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75em;
+  font-size: 1.1em;
+  line-height: 160%;
+  color: #41455a;
+}
+
+.cm-point-check {
+  color: #ff6563;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+/* Skills Cards & Pills */
+.cm-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+@media (max-width: 1024px) {
+  .cm-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .cm-skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cm-skill-category-card {
+  background: #fafbfc;
+  padding: 1.8em;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 46, 87, 0.1);
+  box-shadow: 0 4px 12px rgba(28, 46, 87, 0.04);
+}
+
+.cm-cat-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-bottom: 1.2em;
+}
+
+.cm-skill-icon {
+  color: #ff6563;
+}
+
+.cm-cat-title {
+  font-size: 1.3em;
+  font-family: Bushcraft, sans-serif;
+  color: #1c2e57;
+}
+
+.cm-cat-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.cm-cat-pill {
+  font-size: 0.9em;
+  font-weight: 700;
+  font-family: Lato, sans-serif;
+  background: #ffffff;
+  color: #41455a;
+  padding: 0.35em 0.8em;
+  border-radius: 4px;
+  border: 1px solid rgba(28, 46, 87, 0.12);
+  display: inline-block;
+}
+
+/* 7. Footer Fixes */
+footer.footer-home {
+  position: relative !important;
+  overflow: hidden !important;
+  padding-bottom: 3em !important;
+}
+
+footer .footer-primary .footer-newsletter {
+  display: block !important;
+}
+
+footer .footer-home-decoration-1,
+footer .footer-home-decoration-2 {
+  position: absolute !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+footer .footer-home-decoration-1 {
+  left: 0 !important;
+  width: 25vw !important;
+  max-width: 320px !important;
+  height: auto !important;
+}
+
+footer .footer-home-decoration-2 {
+  right: 0 !important;
+  width: 30vw !important;
+  max-width: 400px !important;
+  height: auto !important;
+}
+
+.footer-social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.footer-social-icon-link:hover {
+  background: #ff6563;
+  color: #ffffff;
+  transform: translateY(-2px);
+}

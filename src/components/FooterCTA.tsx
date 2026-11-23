@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Copy, Check, Github, Linkedin, FileText, ArrowUp } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/content';
 
 export const FooterCTA: React.FC = () => {
@@ -8,6 +9,10 @@ export const FooterCTA: React.FC = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.links.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -32,8 +37,9 @@ export const FooterCTA: React.FC = () => {
                 Contact me
               </a>
             </p>
-            <div>
+            <div style={{ marginTop: '1em' }}>
               <button onClick={handleCopyEmail} className="footer-copy-btn">
+                <Mail size={16} />
                 <span>{PERSONAL_INFO.links.email}</span>
                 {copied && <span className="toast-copied">✓ Copied!</span>}
               </button>
@@ -69,7 +75,7 @@ export const FooterCTA: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--primary"
-              style={{ fontSize: '1em', padding: '0.4em 1.2em' }}
+              style={{ fontSize: '1em', padding: '0.5em 1.4em' }}
             >
               Download CV
             </a>
@@ -87,18 +93,16 @@ export const FooterCTA: React.FC = () => {
           </div>
 
           <div className="footer-socials-container">
-            <ul className="socials-list">
+            <ul className="socials-list" style={{ display: 'flex', gap: '0.8em', listStyle: 'none' }}>
               <li className="social-item">
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
                   href={PERSONAL_INFO.links.github}
+                  className="footer-social-icon-link"
+                  aria-label="GitHub Profile"
                 >
-                  <img
-                    className="social-icon"
-                    src="/images/illustrations/github.svg"
-                    alt="github profile"
-                  />
+                  <Github size={18} />
                 </a>
               </li>
               <li className="social-item">
@@ -106,12 +110,10 @@ export const FooterCTA: React.FC = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                   href={PERSONAL_INFO.links.linkedin}
+                  className="footer-social-icon-link"
+                  aria-label="LinkedIn Profile"
                 >
-                  <img
-                    className="social-icon"
-                    src="/images/illustrations/facebook.svg"
-                    alt="linkedin profile"
-                  />
+                  <Linkedin size={18} />
                 </a>
               </li>
               <li className="social-item">
@@ -119,12 +121,10 @@ export const FooterCTA: React.FC = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                   href={`mailto:${PERSONAL_INFO.links.email}`}
+                  className="footer-social-icon-link"
+                  aria-label="Email Contact"
                 >
-                  <img
-                    className="social-icon"
-                    src="/images/illustrations/instagram.svg"
-                    alt="email contact"
-                  />
+                  <Mail size={18} />
                 </a>
               </li>
             </ul>
@@ -132,15 +132,16 @@ export const FooterCTA: React.FC = () => {
         </div>
       </div>
 
+      {/* Correct Class Names for Footer Forest Decorations */}
       <img
         src="/images/illustrations/home-footer-decoration-1.svg"
-        alt="home footer decoration"
-        className="home-footer-decoration-1"
+        alt="home footer decoration left"
+        className="footer-home-decoration-1"
       />
       <img
         src="/images/illustrations/home-footer-decoration-2.svg"
-        alt="home footer decoration"
-        className="home-footer-decoration-2"
+        alt="home footer decoration right"
+        className="footer-home-decoration-2"
       />
     </footer>
   );

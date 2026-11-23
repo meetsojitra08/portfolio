@@ -14,16 +14,17 @@ export const CliffProcess: React.FC = () => {
               <p>
                 The first phase is actually the most important one, as it involves a solid understanding of{' '}
                 <strong>the vision you have and the goals you want to achieve</strong>. It involves also a good
-                perception of what <strong>your business goals and architectural needs</strong> are, and how the web
-                and database models can be utilized to help you <strong>achieve those goals</strong>.
+                perception of what <strong>your business goals and architectural needs</strong> are, and how modern
+                backend structures and database models can be utilized to help you{' '}
+                <strong>achieve those goals</strong>.
               </p>
             </div>
             <div className="linear-block linear-block--right">
-              <div className="tree-right-wrap">
+              <div style={{ textAlign: 'center', opacity: 0.85 }}>
                 <img
-                  src="/images/illustrations/tree-right.svg"
+                  src="/images/illustrations/tree-close-up-dark.svg"
                   alt="forest tree decoration"
-                  style={{ maxWidth: '280px', height: 'auto' }}
+                  style={{ maxWidth: '240px', height: 'auto', display: 'inline-block' }}
                 />
               </div>
             </div>
@@ -36,35 +37,35 @@ export const CliffProcess: React.FC = () => {
         <section className="section">
           <div className="linear-content design">
             <div className="linear-block linear-block--left image-left">
-              <div className="tree-right-wrap">
+              <div style={{ textAlign: 'center', opacity: 0.85 }}>
                 <img
-                  src="/images/illustrations/tree-close-up-dark.svg"
+                  src="/images/illustrations/tree-close-up-light.svg"
                   alt="forest tree decoration"
-                  style={{ maxWidth: '280px', height: 'auto' }}
+                  style={{ maxWidth: '240px', height: 'auto', display: 'inline-block' }}
                 />
               </div>
             </div>
             <div className="linear-block linear-block--right">
               <h4>
-                2. Crafting a stunning <span className="highlight">design &amp; architecture</span>
+                2. Crafting a stunning <span className="highlight">design</span>
               </h4>
               <p>
-                In the next phase, the main focus will lie on the system architecture, from responsive React user
-                interfaces to PostgreSQL relational schema design. Your idea will be transformed into{' '}
-                <strong>a user-friendly web application</strong> built with performance and simplicity in mind.
+                In the next phase, the main focus will lie on the digital design and system architecture, from responsive
+                React user interfaces to PostgreSQL relational schema optimization. Your idea will be transformed into{' '}
+                <strong>a user-friendly web application</strong> built with simplicity, reliability, and speed in mind.
               </p>
             </div>
           </div>
         </section>
       </div>
 
-      {/* Decorative Blur Trees */}
+      {/* Decorative Tree Blur */}
       <div className="tree-blur-container">
         <div>
           <div>
             <img
               className="tree tree--right"
-              src="/images/illustrations/tree-right.svg"
+              src="/images/illustrations/tree-close-up-dark.svg"
               alt="closed up tree of the forest"
             />
           </div>
@@ -94,11 +95,11 @@ export const CliffProcess: React.FC = () => {
               </p>
             </div>
             <div className="linear-block linear-block--right">
-              <div className="tree-right-wrap">
+              <div style={{ textAlign: 'center', opacity: 0.85 }}>
                 <img
-                  src="/images/illustrations/tree-close-up-light.svg"
+                  src="/images/illustrations/tree-close-up-dark.svg"
                   alt="forest tree decoration"
-                  style={{ maxWidth: '280px', height: 'auto' }}
+                  style={{ maxWidth: '240px', height: 'auto', display: 'inline-block' }}
                 />
               </div>
             </div>

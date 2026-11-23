@@ -76,9 +76,23 @@ export const LandscapeHero: React.FC = () => {
         {/* H1 Titles (Sandwiched between Fourth and Third Forest Layers!) */}
         <div
           className="titles"
-          style={{ transform: `translate3d(0, ${offsetY * 0.18}px, 0)` }}
+          style={{
+            transform: `translate3d(0, ${offsetY * 0.18}px, 0)`,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            width: '100%',
+            left: 0,
+            right: 0,
+            margin: '0 auto'
+          }}
         >
-          <h1 className="animation--fade-in title--upper">
+          <h1
+            className="animation--fade-in title--upper"
+            style={{ textAlign: 'center', width: '100%', margin: '0 auto' }}
+          >
             web design &amp; <br />
             <span>development</span>
           </h1>
