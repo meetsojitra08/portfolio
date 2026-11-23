@@ -1,53 +1,71 @@
 import React from 'react';
-import { PERSONAL_INFO } from '../data/content';
 
 export const IntroPitch: React.FC = () => {
   return (
-    <section id="pitch" className="cm-section cm-intro-section">
-      <div className="cm-container">
-        {/* Main Title */}
-        <h2 className="cm-section-title">
-          Need a freelance <span className="highlight">full stack developer</span>
-          <br />
-          for your website or product?
-        </h2>
+    <>
+      <div className="container" id="discover">
+        <section className="section margin-top--large">
+          <div className="title-content">
+            <h2 className="">
+              Need a <span className="highlight">freelance</span> full stack developer
+              <br />
+              for your website?
+            </h2>
+          </div>
 
-        {/* Primary CTA Button */}
-        <div className="cm-btn-wrap">
-          <a href="#contact" className="btn btn--primary">
-            Let's get started
-          </a>
-        </div>
+          <div className="main-btn">
+            <a href="#contact" className="btn btn--primary btn--large">
+              Let's get started
+            </a>
+          </div>
+        </section>
 
-        {/* Narrative Paragraph */}
-        <p className="cm-lead-content">
-          Hey there! I am Meet Sojitra, a{' '}
-          <span className="highlight">creative Full Stack Developer and AI Engineer</span> based in
-          Ahmedabad, India. With 1+ year of hands-on production experience in{' '}
-          <strong>Python, Django REST, FastAPI, React, TypeScript, and PostgreSQL</strong>, I aim to
-          engineer web applications that offer a <span className="highlight">modern, polished look and feel</span>{' '}
-          and that are powered by backend code that’s just as beautiful, resilient, and scalable.
-        </p>
-
-        {/* The Place Where All The Coding & Designing Happens (The Cabin!) */}
-        <div className="cm-cabin-stage">
-          <img
-            src="/images/illustrations/tree-blur-left.png"
-            alt="forest pine tree left"
-            className="cm-cabin-blur-l"
-          />
-          <img
-            src="/images/illustrations/codemaster-house.svg"
-            alt="The place where all the coding and designing happens"
-            className="cm-house-svg"
-          />
-          <img
-            src="/images/illustrations/tree-blur-right.png"
-            alt="forest pine tree right"
-            className="cm-cabin-blur-r"
-          />
+        <div className="section margin-top--large">
+          <div className="content align--center">
+            <p>
+              Hey there! I am Meet Sojitra, a <strong>creative full stack developer &amp; AI engineer</strong>{' '}
+              based in Ahmedabad, India. With 1+ year of hands-on experience in{' '}
+              <strong>Python, Django, FastAPI, React, and PostgreSQL</strong>, I aim to create web systems that
+              offer a <strong>modern look and feel</strong> and that are powered by code that's just as beautiful,
+              sub-second fast, and scalable.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
+
+      {/* Cabin & What to expect Title Banner */}
+      <section className="section">
+        <div className="codemaster-content">
+          <div className="images images--left">
+            <img
+              src="/images/illustrations/codemaster-house.svg"
+              alt="The place where all the coding and the designing happens"
+            />
+            <div className="tree--left-blur">
+              <img
+                src="/images/illustrations/tree-blur-left.png"
+                alt="a close up blur tree of the forest"
+              />
+            </div>
+          </div>
+
+          <div className="images images--right">
+            <div className="title-container">
+              <h3 className="xlg">
+                What to
+                <br />
+                <span className="highlight">expect</span>
+              </h3>
+            </div>
+            <div className="tree tree--bottom-blur">
+              <img
+                src="/images/illustrations/tree-blur-right.png"
+                alt="a close up blur tree of the forest"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
