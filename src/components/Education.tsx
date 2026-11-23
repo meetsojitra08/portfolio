@@ -1,83 +1,73 @@
-import { useEffect, useRef, useState } from 'react';
-import { Award, GraduationCap } from 'lucide-react';
+import React from 'react';
+import { GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
 import { EDUCATION, CERTIFICATIONS } from '../data/content';
-import { SectionHeading } from './SectionHeading';
 
-export function Education() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
-      },
-      { threshold: 0.25 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
+export const Education: React.FC = () => {
   return (
-    <section ref={sectionRef} className="section education-section">
-      <SectionHeading
-        index="06 / EDUCATION"
-        title="Degree & certifications."
-        highlightWord="Degree"
-        subtitle="Formal academic degree in Information Technology complemented with continuous technical certifications."
-      />
-
-      <div className="education-grid">
-        {/* Degree Card */}
-        <div
-          className={`education-card ${isInView ? 'is-revealed delay-1' : ''}`}
-        >
-          <div className="card-top-icon">
-            <span className="project-type">{EDUCATION.period}</span>
-            <GraduationCap size={18} className="edu-icon" />
-          </div>
-
-          <h3>{EDUCATION.degree}</h3>
-          <p>{EDUCATION.field}</p>
-
-          <div className="education-bottom">
-            <strong>{EDUCATION.institution}</strong>
-            <span>
-              {EDUCATION.location} · {EDUCATION.grade}
-            </span>
-          </div>
+    <section id="education" className="scenic-education-section">
+      <div className="section-container">
+        {/* Section Header */}
+        <div className="education-header-block">
+          <span className="section-eyebrow">ACADEMIC & CONTINUOUS LEARNING</span>
+          <h2 className="education-title">
+            FOUNDATION & <span className="accent-coral">CERTIFICATIONS</span>
+          </h2>
         </div>
 
-        {/* Certifications Card */}
-        <div
-          className={`cert-card ${isInView ? 'is-revealed delay-2' : ''}`}
-        >
-          <div className="card-top-icon">
-            <span className="project-type">CERTIFICATIONS</span>
-            <Award size={18} className="edu-icon" />
+        <div className="education-layout-grid">
+          {/* Degree Card */}
+          <div className="degree-card">
+            <div className="card-badge">
+              <GraduationCap size={16} />
+              <span>FORMAL EDUCATION</span>
+            </div>
+
+            <div className="degree-header">
+              <h3 className="degree-title">{EDUCATION.degree}</h3>
+              <div className="degree-field">{EDUCATION.field}</div>
+            </div>
+
+            <div className="degree-meta">
+              <span className="meta-inst">{EDUCATION.institution}</span>
+              <span className="meta-dot">·</span>
+              <span className="meta-loc">
+                <MapPin size={13} /> {EDUCATION.location}
+              </span>
+            </div>
+
+            <div className="degree-footer">
+              <span className="grade-badge">Grade: {EDUCATION.grade}</span>
+              <span className="period-badge">
+                <Calendar size={13} /> 2021 — 2025
+              </span>
+            </div>
           </div>
 
-          <ul>
-            {CERTIFICATIONS.map((cert) => (
-              <li key={cert.num} className="cert-item">
-                <span>{cert.num}</span>
-                <div>
-                  <strong>{cert.title}</strong>
-                  <small>
-                    {cert.issuer} · {cert.year}
-                  </small>
+          {/* Certifications Card */}
+          <div className="certifications-card">
+            <div className="card-badge">
+              <Award size={16} />
+              <span>INDUSTRY CERTIFICATIONS</span>
+            </div>
+
+            <div className="cert-list">
+              {CERTIFICATIONS.map(cert => (
+                <div key={cert.num} className="cert-item">
+                  <div className="cert-num">{cert.num}</div>
+                  <div className="cert-details">
+                    <h4 className="cert-title">{cert.title}</h4>
+                    <div className="cert-meta">
+                      <span className="cert-issuer">{cert.issuer}</span>
+                      <span className="cert-dot">·</span>
+                      <span className="cert-year">{cert.year}</span>
+                    </div>
+                  </div>
                 </div>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};

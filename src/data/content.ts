@@ -223,9 +223,10 @@ export const CERTIFICATIONS: CertificationItem[] = [
 ];
 
 export const NAV_LINKS = [
-  { id: 'projects', label: 'Projects', num: '01' },
-  { id: 'about', label: 'About', num: '02' },
-  { id: 'experience', label: 'Experience', num: '03' },
-  { id: 'skills', label: 'Skills', num: '04' },
-  { id: 'contact', label: 'Contact', num: '05' }
+  { id: 'pitch', label: 'Overview', num: '01' },
+  { id: 'process', label: 'Process', num: '02' },
+  { id: 'projects', label: 'Projects', num: '03' },
+  { id: 'experience', label: 'Experience', num: '04' },
+  { id: 'skills', label: 'Skills', num: '05' },
+  { id: 'contact', label: 'Contact', num: '06' }
 ];

@@ -1,129 +1,71 @@
-import { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { Briefcase, Calendar, MapPin, CheckCircle, Award } from 'lucide-react';
 import { EXPERIENCES } from '../data/content';
-import { SectionHeading } from './SectionHeading';
 
-function ExperienceCard({
-  job,
-  index,
-  isActive,
-}: {
-  job: (typeof EXPERIENCES)[0];
-  index: number;
-  isActive: boolean;
-}) {
+export const Experience: React.FC = () => {
   return (
-    <article
-      className={`experience-item timeline-entry ${isActive ? 'is-visible' : ''}`}
-      style={{
-        transitionDelay: `${index * 0.15}s`,
-      }}
-    >
-      {/* Glowing Milestone Node */}
-      <div className="timeline-node" aria-hidden="true">
-        <div className={`node-dot ${isActive ? 'is-active' : ''}`} />
-      </div>
-
-      <div className="experience-date">
-        {job.period}
-        <span>0{index + 1}</span>
-      </div>
-
-      <div className="experience-main">
-        <div className="experience-title">
-          <div>
-            <h3>{job.company}</h3>
-            <p>{job.role}</p>
-          </div>
-          <span className="location">{job.place}</span>
-        </div>
-        <ul>
-          {job.points.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
-      </div>
-    </article>
-  );
-}
-
-export function Experience() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [lineProgress, setLineProgress] = useState(0);
-  const [activeItems, setActiveItems] = useState<boolean[]>(
-    new Array(EXPERIENCES.length).fill(false)
-  );
-
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calculate how far through the experience section the user has scrolled
-      const totalHeight = rect.height;
-      const visibleFromTop = windowHeight - rect.top;
-      const progress = Math.min(1, Math.max(0, (visibleFromTop - 120) / (totalHeight - 80)));
-
-      setLineProgress(progress);
-
-      // Trigger visibility for each job card
-      setActiveItems(
-        EXPERIENCES.map((_, i) => {
-          const threshold = (i + 0.3) / EXPERIENCES.length;
-          return progress >= threshold * 0.6;
-        })
-      );
-
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(handleScroll);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  return (
-    <section ref={sectionRef} className="section experience-section" id="experience">
-      <SectionHeading
-        index="03 / EXPERIENCE"
-        title="Where I've worked & built."
-        highlightWord="worked"
-        subtitle="Professional software engineering experience across high-uptime backend services and responsive web applications."
-      />
-
-      <div className="experience-timeline-wrap">
-        {/* Continuous SVG Drawing Timeline Line */}
-        <div className="vertical-timeline-track" aria-hidden="true">
-          <div
-            className="vertical-timeline-fill"
-            style={{
-              transform: `scaleY(${lineProgress})`,
-            }}
-          />
+    <section id="experience" className="scenic-experience-section">
+      <div className="section-container">
+        {/* Section Header */}
+        <div className="experience-header-block">
+          <span className="section-eyebrow">CAREER MILESTONES</span>
+          <h2 className="experience-title">
+            WHERE I'VE <span className="accent-coral">WORKED</span>
+          </h2>
+          <p className="experience-subtitle">
+            Demonstrated engineering impact across high-uptime backend services,
+            responsive business dashboards, and real-time enterprise automation.
+          </p>
         </div>
 
-        <div className="experience-list">
-          {EXPERIENCES.map((job, i) => (
-            <ExperienceCard
-              key={job.company}
-              job={job}
-              index={i}
-              isActive={activeItems[i]}
-            />
+        {/* Trail Timeline of Experience */}
+        <div className="scenic-experience-timeline">
+          {EXPERIENCES.map((exp, index) => (
+            <div key={exp.company} className="scenic-timeline-node">
+              {/* Waypoint Marker */}
+              <div className="timeline-waypoint">
+                <div className="waypoint-ring">
+                  <span className="waypoint-num">0{index + 1}</span>
+                </div>
+                <div className="waypoint-line" />
+              </div>
+
+              {/* Waypoint Content Card */}
+              <div className="timeline-card">
+                <div className="card-top-bar">
+                  <div className="company-info">
+                    <h3 className="company-name">{exp.company}</h3>
+                    <div className="role-title">{exp.role}</div>
+                  </div>
+
+                  <div className="timeline-badges">
+                    <span className="badge-period">
+                      <Calendar size={13} />
+                      {exp.period}
+                    </span>
+                    <span className="badge-place">
+                      <MapPin size={13} />
+                      {exp.place}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="card-divider" />
+
+                {/* Achievements List from Resume */}
+                <ul className="experience-points-list">
+                  {exp.points.map((pt, pIdx) => (
+                    <li key={pIdx} className="point-item">
+                      <CheckCircle size={15} className="point-bullet" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
