@@ -1,9 +1,6 @@
-import { useEffect, useState } from 'react';
-import { ArrowUpRight, Menu, Moon, Sun, Volume2, VolumeX, X } from 'lucide-react';
-import { NAV_LINKS, PERSONAL_INFO } from '../data/content';
-import { Magnetic } from './Magnetic';
-import { scrollToElement } from '../lib/animations';
-import { isAudioEnabled, toggleAudio, playPillBeep } from '../lib/sound';
+import React, { useEffect, useState } from 'react';
+import { Home, User, Briefcase, Mail, X, Menu } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/content';
 
 interface NavbarProps {
   dark: boolean;
@@ -12,132 +9,151 @@ interface NavbarProps {
   setActiveSection: (id: string) => void;
 }
 
-export function Navbar({ dark, onToggleTheme, activeSection, setActiveSection }: NavbarProps) {
-  const [hidden, setHidden] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection }) => {
+  const [sticky, setSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [audioActive, setAudioActive] = useState(() => isAudioEnabled());
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 50) {
-        setScrolled(true);
+      if (window.scrollY > 80) {
+        setSticky(true);
       } else {
-        setScrolled(false);
+        setSticky(false);
       }
-
-      if (currentScrollY > 120 && currentScrollY > lastScrollY && !menuOpen) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-
-      lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [menuOpen]);
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    playPillBeep(700, 0.05);
     setActiveSection(id);
     setMenuOpen(false);
-    scrollToElement(`#${id}`);
-  };
-
-  const handleToggleSound = () => {
-    const nextState = toggleAudio();
-    setAudioActive(nextState);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <header
-      className={`topbar ${hidden ? 'topbar-hidden' : ''} ${scrolled ? 'topbar-scrolled' : ''}`}
-      role="banner"
-    >
-      <Magnetic strength={0.25}>
-        <a
-          className="brand"
-          href="#home"
-          onClick={(e) => handleNavClick(e, 'home')}
-          aria-label="Meet Sojitra Home"
-        >
-          MS<span>.</span>
-        </a>
-      </Magnetic>
+    <>
+      {/* Desktop Main Navigation Bar */}
+      <nav className={`cm-navbar ${sticky ? 'cm-navbar-sticky' : ''}`}>
+        <div className="cm-nav-container">
+          {/* Left Group */}
+          <div className="cm-nav-group cm-nav-left">
+            <a
+              href="#welcome"
+              className={`cm-nav-item ${activeSection === 'welcome' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'welcome')}
+            >
+              welcome
+            </a>
+            <a
+              href="#pitch"
+              className={`cm-nav-item ${activeSection === 'pitch' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'pitch')}
+            >
+              discover
+            </a>
+          </div>
 
-      <nav
-        className={`nav ${menuOpen ? 'nav-open' : ''}`}
-        aria-label="Main navigation"
-      >
-        {NAV_LINKS.map(({ id, label, num }) => (
-          <a
-            key={id}
-            className={`nav-link ${activeSection === id ? 'active' : ''}`}
-            href={`#${id}`}
-            onClick={(e) => handleNavClick(e, id)}
-          >
-            <span className="nav-num">{num}</span>
-            {label}
-          </a>
-        ))}
+          {/* Center Brand Logo */}
+          <div className="cm-nav-center">
+            <a
+              href="#welcome"
+              className="cm-logo"
+              onClick={(e) => handleNavClick(e, 'welcome')}
+              aria-label="Meet Sojitra Home"
+            >
+              <span className="cm-logo-symbol">✦</span>
+              <span className="cm-logo-text">MEET SOJITRA</span>
+            </a>
+          </div>
+
+          {/* Right Group */}
+          <div className="cm-nav-group cm-nav-right">
+            <a
+              href="#projects"
+              className={`cm-nav-item ${activeSection === 'projects' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'projects')}
+            >
+              explore
+            </a>
+            <a
+              href="#contact"
+              className={`cm-nav-item ${activeSection === 'contact' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'contact')}
+            >
+              contact
+            </a>
+          </div>
+        </div>
       </nav>
 
-      <div className="top-actions">
-        {/* Audio FX Toggle Pill */}
-        <Magnetic strength={0.2}>
-          <button
-            type="button"
-            className={`sfx-toggle-btn ${audioActive ? 'is-active' : ''}`}
-            onClick={handleToggleSound}
-            title={audioActive ? 'Mute SFX' : 'Enable Sci-Fi SFX'}
-            aria-label="Toggle Sci-Fi SFX"
-          >
-            {audioActive ? <Volume2 size={13} /> : <VolumeX size={13} />}
-            <span className="sfx-label">{audioActive ? 'SFX ON' : 'SFX OFF'}</span>
-          </button>
-        </Magnetic>
+      {/* Mobile Neumorphic Circular Toggle Button */}
+      <button
+        className={`cm-mobile-toggle ${menuOpen ? 'is-active' : ''}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle Navigation Menu"
+        aria-expanded={menuOpen}
+      >
+        {menuOpen ? <X size={22} /> : <Menu size={22} />}
+      </button>
 
-        <Magnetic strength={0.3}>
+      {/* Mobile 4-Quadrant Radial Menu Modal */}
+      <div className={`cm-mobile-quadrant-modal ${menuOpen ? 'is-open' : ''}`}>
+        <div className="cm-quadrants-grid">
+          {/* Quadrant 1: Top-Left (Terracotta Red) */}
           <a
-            className="hire-link"
-            href={`mailto:${PERSONAL_INFO.links.email}`}
-            data-cursor="pointer"
-            onClick={() => playPillBeep(800, 0.05)}
+            href="#welcome"
+            className="cm-quadrant quad-home"
+            onClick={(e) => handleNavClick(e, 'welcome')}
           >
-            LET'S TALK <ArrowUpRight size={13} />
+            <div className="quad-circle-badge">
+              <Home size={24} />
+            </div>
+            <span className="quad-label">Welcome</span>
           </a>
-        </Magnetic>
 
-        <Magnetic strength={0.25}>
-          <button
-            className="theme-toggle"
-            onClick={() => {
-              playPillBeep(600, 0.05);
-              onToggleTheme();
-            }}
-            aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
-            data-cursor="pointer"
+          {/* Quadrant 2: Top-Right (Sage Green) */}
+          <a
+            href="#pitch"
+            className="cm-quadrant quad-about"
+            onClick={(e) => handleNavClick(e, 'pitch')}
           >
-            {dark ? <Sun size={15} /> : <Moon size={15} />}
-          </button>
-        </Magnetic>
+            <div className="quad-circle-badge">
+              <User size={24} />
+            </div>
+            <span className="quad-label">Discover</span>
+          </a>
 
-        <button
-          className="mobile-menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          {/* Quadrant 3: Bottom-Left (Cyan / Lake Blue) */}
+          <a
+            href="#projects"
+            className="cm-quadrant quad-projects"
+            onClick={(e) => handleNavClick(e, 'projects')}
+          >
+            <div className="quad-circle-badge">
+              <Briefcase size={24} />
+            </div>
+            <span className="quad-label">Explore</span>
+          </a>
+
+          {/* Quadrant 4: Bottom-Right (Warm Apricot) */}
+          <a
+            href="#contact"
+            className="cm-quadrant quad-contact"
+            onClick={(e) => handleNavClick(e, 'contact')}
+          >
+            <div className="quad-circle-badge">
+              <Mail size={24} />
+            </div>
+            <span className="quad-label">Contact</span>
+          </a>
+        </div>
       </div>
-    </header>
+    </>
   );
-}
+};

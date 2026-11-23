@@ -1,29 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Copy, Check, Github, Linkedin, FileText, ArrowUp } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/content';
 
 export const FooterCTA: React.FC = () => {
   const [copied, setCopied] = useState(false);
-  const [timeStr, setTimeStr] = useState('');
-
-  // Live Local Time (IST)
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      };
-      setTimeStr(new Intl.DateTimeFormat('en-US', options).format(now));
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.links.email);
@@ -36,136 +16,126 @@ export const FooterCTA: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="scenic-night-footer">
-      {/* Top Transition Hills & Forest Silhouettes */}
-      <div className="footer-landscape-transition">
-        <svg viewBox="0 0 1440 220" preserveAspectRatio="none" className="footer-cutout-svg">
-          <path
-            d="M0,80 C360,20 1080,20 1440,80 L1440,220 L0,220 Z"
-            fill="#180719"
-          />
-          {/* Subtle night pine silhouettes along the crest */}
-          <path
-            d="M80,80 L90,55 L100,80 L115,50 L130,85 M350,60 L360,35 L370,62 L385,40 L400,65 M720,50 L735,22 L750,52 L770,30 L785,55 M1120,65 L1130,40 L1145,68 L1160,45 L1175,70"
-            stroke="#100311"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-        </svg>
-
-        {/* Gentle Starry Sky Sparkles */}
-        <div className="night-stars-overlay">
-          <span className="star star-1" />
-          <span className="star star-2" />
-          <span className="star star-3" />
-          <span className="star star-4" />
-          <span className="star star-5" />
-          <span className="star star-6" />
-        </div>
+    <footer id="contact" className="cm-footer">
+      {/* 1. Organic Curved Vector Top Shape Divider */}
+      <div className="cm-footer-top-shape-wrap">
+        <img
+          src="/images/illustrations/top-shape.svg"
+          alt="footer top shape"
+          className="cm-footer-top-shape"
+        />
       </div>
 
-      <div className="section-container footer-content-wrap">
-        {/* Main Footer Pitch */}
-        <div className="footer-headline-row">
-          <div className="footer-prompt-block">
-            <span className="footer-eyebrow">GET IN TOUCH</span>
-            <h2 className="footer-cta-title">
-              ARE YOU READY TO <span className="accent-coral">START?</span>
-            </h2>
-            <p className="footer-cta-desc">
-              Whether you need high-throughput full-stack development, dependable RESTful APIs,
-              or intelligent AI product workflows — let's build something extraordinary together.
-            </p>
-          </div>
-
-          <div className="footer-contact-actions">
-            <button onClick={handleCopyEmail} className="btn-copy-email">
+      <div className="cm-container cm-footer-inner">
+        {/* Call to Action Prompt */}
+        <div className="cm-footer-cta-block">
+          <h5 className="cm-footer-title">Are you ready to start?</h5>
+          <p className="cm-footer-prompt">Let's talk about your next web project!</p>
+          <div className="cm-footer-btn-row">
+            <a href={`mailto:${PERSONAL_INFO.links.email}`} className="btn btn--primary">
+              Contact me
+            </a>
+            <button onClick={handleCopyEmail} className="cm-btn-copy" title="Copy email address">
               <Mail size={16} />
               <span>{PERSONAL_INFO.links.email}</span>
-              {copied ? <Check size={16} className="text-green" /> : <Copy size={16} />}
+              {copied ? <Check size={16} className="cm-check-copied" /> : <Copy size={16} />}
             </button>
-            {copied && <span className="copy-toast">Copied to clipboard!</span>}
-
-            <a
-              href={`mailto:${PERSONAL_INFO.links.email}?subject=Project%20Inquiry%20from%20Portfolio`}
-              className="btn-send-message"
-            >
-              <span>SEND AN EMAIL</span>
-            </a>
           </div>
+          {copied && <span className="cm-copied-bubble">Copied to clipboard!</span>}
         </div>
 
-        {/* Footer Navigation & Details Grid */}
-        <div className="footer-meta-grid">
-          {/* Col 1: Direct Contact */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">DIRECT CONTACT</h4>
-            <ul className="footer-info-list">
+        {/* Footer Navigation Columns */}
+        <div className="cm-footer-grid">
+          {/* Column 1: Navigation Pages */}
+          <div className="cm-footer-col">
+            <h6 className="cm-col-title">Pages</h6>
+            <ul className="cm-footer-links">
+              <li><a href="#welcome">Welcome</a></li>
+              <li><a href="#pitch">Discover</a></li>
+              <li><a href="#projects">Explore</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          {/* Column 2: Direct Contact */}
+          <div className="cm-footer-col">
+            <h6 className="cm-col-title">Direct Contact</h6>
+            <ul className="cm-footer-links">
               <li>
-                <Mail size={15} className="col-icon" />
-                <a href={`mailto:${PERSONAL_INFO.links.email}`}>{PERSONAL_INFO.links.email}</a>
+                <a href={`mailto:${PERSONAL_INFO.links.email}`}>
+                  {PERSONAL_INFO.links.email}
+                </a>
               </li>
               <li>
-                <Phone size={15} className="col-icon" />
-                <a href={`tel:${PERSONAL_INFO.phone}`}>{PERSONAL_INFO.phone}</a>
+                <a href={`tel:${PERSONAL_INFO.phone}`}>
+                  {PERSONAL_INFO.phone}
+                </a>
               </li>
               <li>
-                <MapPin size={15} className="col-icon" />
                 <span>{PERSONAL_INFO.location}</span>
               </li>
             </ul>
           </div>
 
-          {/* Col 2: Social & Profiles */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">PROFILES & CODE</h4>
-            <ul className="footer-info-list">
-              <li>
-                <Github size={15} className="col-icon" />
-                <a href={PERSONAL_INFO.links.github} target="_blank" rel="noopener noreferrer">
-                  GitHub Profile
-                </a>
-              </li>
-              <li>
-                <Linkedin size={15} className="col-icon" />
-                <a href={PERSONAL_INFO.links.linkedin} target="_blank" rel="noopener noreferrer">
-                  LinkedIn Network
-                </a>
-              </li>
-              <li>
-                <FileText size={15} className="col-icon" />
-                <a href={PERSONAL_INFO.links.resume} target="_blank" rel="noopener noreferrer">
-                  Download Resume (PDF)
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Status & Time */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">CURRENT STATUS</h4>
-            <div className="availability-chip">
-              <span className="pulsing-dot" />
-              <span>{PERSONAL_INFO.availability}</span>
+          {/* Column 3: Profiles & Resume */}
+          <div className="cm-footer-col">
+            <h6 className="cm-col-title">Meet Sojitra.</h6>
+            <p className="cm-col-sub">
+              Full Stack &amp; AI Developer building scalable, beautiful web systems.
+            </p>
+            <div className="cm-social-icons">
+              <a
+                href={PERSONAL_INFO.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <Github size={20} />
+              </a>
+              <a
+                href={PERSONAL_INFO.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href={PERSONAL_INFO.links.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Resume PDF"
+              >
+                <FileText size={20} />
+              </a>
             </div>
-            <div className="local-time-card">
-              <span className="time-lbl">Ahmedabad, India (IST)</span>
-              <span className="time-val">{timeStr || 'Loading...'}</span>
+            <div className="cm-copyright">
+              All rights reserved · {new Date().getFullYear()}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="footer-bottom-bar">
-          <div className="copyright-text">
-            © {new Date().getFullYear()} Meet Sojitra. Crafted with passion, precision & code.
-          </div>
-
-          <button onClick={scrollToTop} className="btn-back-to-top" aria-label="Back to top">
-            <span>BACK TO TOP</span>
-            <ArrowUp size={15} />
+        {/* Back to top button */}
+        <div className="cm-footer-bottom">
+          <button onClick={scrollToTop} className="cm-btn-top" aria-label="Back to top">
+            <span>Back to top</span>
+            <ArrowUp size={14} />
           </button>
         </div>
+      </div>
+
+      {/* Decorative Bottom Forest Vector Shapes */}
+      <div className="cm-footer-decorations">
+        <img
+          src="/images/illustrations/home-footer-decoration-1.svg"
+          alt="footer forest tree decoration"
+          className="cm-decor-1"
+        />
+        <img
+          src="/images/illustrations/home-footer-decoration-2.svg"
+          alt="footer forest tree decoration"
+          className="cm-decor-2"
+        />
       </div>
     </footer>
   );

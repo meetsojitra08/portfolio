@@ -1,82 +1,51 @@
 import React from 'react';
-import { ArrowRight, FileText, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/content';
 
 export const IntroPitch: React.FC = () => {
   return (
-    <section id="pitch" className="intro-pitch-section">
-      <div className="section-container">
-        {/* Main Pitch Heading mirroring the reference */}
-        <div className="pitch-header">
-          <h2 className="pitch-title">
-            NEED A <span className="accent-coral">FULL STACK DEVELOPER</span>
-            <br />
-            FOR YOUR NEXT BIG VENTURE?
-          </h2>
+    <section id="pitch" className="cm-section cm-intro-section">
+      <div className="cm-container">
+        {/* Main Title */}
+        <h2 className="cm-section-title">
+          Need a freelance <span className="highlight">full stack developer</span>
+          <br />
+          for your website or product?
+        </h2>
 
-          <div className="pitch-actions">
-            <a href="#contact" className="btn-pill-coral">
-              <span>HIRE ME / LET'S TALK</span>
-              <ArrowRight size={16} />
-            </a>
-            <a
-              href={PERSONAL_INFO.links.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-pill-outline"
-            >
-              <FileText size={16} />
-              <span>DOWNLOAD RESUME</span>
-            </a>
-          </div>
+        {/* Primary CTA Button */}
+        <div className="cm-btn-wrap">
+          <a href="#contact" className="btn btn--primary">
+            Let's get started
+          </a>
         </div>
 
-        {/* Narrative Statement from Resume */}
-        <div className="pitch-narrative">
-          <p className="pitch-lead">
-            I'm <strong>Meet Sojitra</strong> — a Full Stack Software Developer based in Ahmedabad, India.
-            With 1+ year of hands-on production experience spanning <strong>Python, Django, FastAPI, React, and PostgreSQL</strong>,
-            I engineer web systems that bridge complex data workflows and responsive interfaces into seamless, high-converting digital products.
-          </p>
+        {/* Narrative Paragraph */}
+        <p className="cm-lead-content">
+          Hey there! I am Meet Sojitra, a{' '}
+          <span className="highlight">creative Full Stack Developer and AI Engineer</span> based in
+          Ahmedabad, India. With 1+ year of hands-on production experience in{' '}
+          <strong>Python, Django REST, FastAPI, React, TypeScript, and PostgreSQL</strong>, I aim to
+          engineer web applications that offer a <span className="highlight">modern, polished look and feel</span>{' '}
+          and that are powered by backend code that’s just as beautiful, resilient, and scalable.
+        </p>
 
-          <p className="pitch-sub">
-            From architecting sub-second AI decision engines (PickWise) to automated log-triage platforms (BugSense),
-            I focus on what matters most: <strong>uncompromising reliability (99.8% uptime)</strong>, clean maintainable code,
-            and intuitive user experiences that scale.
-          </p>
-        </div>
-
-        {/* Value Proposition Highlights */}
-        <div className="pitch-features-grid">
-          <div className="feature-card">
-            <div className="feature-icon-wrap">
-              <CheckCircle2 size={20} className="feature-icon" />
-            </div>
-            <div className="feature-content">
-              <h3>High-Throughput APIs</h3>
-              <p>FastAPI & Django REST Framework with connection pooling, Redis caching, and 99.8% sustained uptime.</p>
-            </div>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon-wrap">
-              <CheckCircle2 size={20} className="feature-icon" />
-            </div>
-            <div className="feature-content">
-              <h3>Sub-32% Faster UI</h3>
-              <p>Type-safe React & TypeScript applications engineered for low latency, smooth animation, and accessibility.</p>
-            </div>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon-wrap">
-              <CheckCircle2 size={20} className="feature-icon" />
-            </div>
-            <div className="feature-content">
-              <h3>AI & Automation</h3>
-              <p>Production integration of LLM triage (Groq), PostgreSQL trigram search, and real-time webhook pipelines.</p>
-            </div>
-          </div>
+        {/* The Place Where All The Coding & Designing Happens (The Cabin!) */}
+        <div className="cm-cabin-stage">
+          <img
+            src="/images/illustrations/tree-blur-left.png"
+            alt="forest pine tree left"
+            className="cm-cabin-blur-l"
+          />
+          <img
+            src="/images/illustrations/codemaster-house.svg"
+            alt="The place where all the coding and designing happens"
+            className="cm-house-svg"
+          />
+          <img
+            src="/images/illustrations/tree-blur-right.png"
+            alt="forest pine tree right"
+            className="cm-cabin-blur-r"
+          />
         </div>
       </div>
     </section>

@@ -1,89 +1,53 @@
 import { useEffect, useState } from 'react';
 import { initSmoothScroll } from './lib/animations';
-import { ScrollProgress } from './components/ScrollProgress';
-import { CustomCursor } from './components/CustomCursor';
-import { Preloader } from './components/Preloader';
 import { Navbar } from './components/Navbar';
 import { LandscapeHero } from './components/LandscapeHero';
 import { IntroPitch } from './components/IntroPitch';
 import { CliffProcess } from './components/CliffProcess';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
-import { About } from './components/About';
 import { Skills } from './components/Skills';
-import { Education } from './components/Education';
 import { FooterCTA } from './components/FooterCTA';
 
 function App() {
-  const [dark, setDark] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved) return saved === 'dark';
-    }
-    return false; // Warm illustrated theme default
-  });
+  const [activeSection, setActiveSection] = useState('welcome');
 
-  const [active, setActive] = useState('home');
-  const [preloaderFinished, setPreloaderFinished] = useState(false);
-
-  // Initialize Lenis smooth scroll
   useEffect(() => {
     const cleanup = initSmoothScroll();
     return () => cleanup();
   }, []);
 
-  // Sync theme attribute
-  useEffect(() => {
-    document.documentElement.dataset.theme = dark ? 'dark' : 'scenic';
-    localStorage.setItem('theme', dark ? 'dark' : 'scenic');
-  }, [dark]);
-
   return (
-    <main className="scenic-theme-main">
-      {/* Preloader with counter */}
-      <Preloader onComplete={() => setPreloaderFinished(true)} />
-
-      {/* Atmospheric UI enhancements */}
-      <CustomCursor />
-      <ScrollProgress />
-
-      {/* Responsive Floating Navbar */}
+    <div className="cm-page-wrapper">
+      {/* Code-Master Desktop Sticky & Mobile Quadrant Navbar */}
       <Navbar
-        dark={dark}
-        onToggleTheme={() => setDark(!dark)}
-        activeSection={active}
-        setActiveSection={setActive}
+        dark={false}
+        onToggleTheme={() => {}}
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
       />
 
-      {/* Hero Section: Illustrated Sunset Mountain Landscape Parallax */}
-      <section id="home">
-        <LandscapeHero />
-      </section>
+      {/* Code-Master Hero Parallax Scene (Sky, Sun, Mountains, Clouds, Forest 4, H1 Title, Forest 3, 2, 1, Blurred Trees) */}
+      <LandscapeHero />
 
-      {/* "NEED A FULL STACK DEVELOPER?" Pitch */}
+      {/* Intro Pitch: "Need a freelance full stack developer?" + Coding Cabin */}
       <IntroPitch />
 
-      {/* "WHAT TO EXPECT" Pagoda Cliff & 3-Step Process Roadmap */}
+      {/* Process: "What to expect" (1. Understanding, 2. Design, 3. Development) */}
       <CliffProcess />
 
-      {/* "CHECK MY LATEST PROJECTS" Showcase */}
+      {/* Projects: "Check my latest projects" (Alternating 2-column layout) */}
       <Projects />
 
-      {/* "WHERE I'VE WORKED" Experience Journey */}
+      {/* Experience: "Where I've worked" */}
       <Experience />
 
-      {/* "ABOUT THE DEVELOPER" Profile & Stats */}
-      <About />
-
-      {/* "TOOLS OF THE TRADE" Skills Marquee */}
+      {/* Skills: "Tools of the trade" */}
       <Skills />
 
-      {/* "FOUNDATION & CERTIFICATIONS" Education */}
-      <Education />
-
-      {/* "ARE YOU READY TO START?" Scenic Night Forest Footer */}
+      {/* Footer: "Are you ready to start?" with top-shape.svg & wine maroon gradient */}
       <FooterCTA />
-    </main>
+    </div>
   );
 }
 
