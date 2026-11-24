@@ -4,7 +4,7 @@ import * as React from "react";
 import { ArrowUpRight, ArrowDown, Download } from "lucide-react";
 import { siteConfig } from "@/content/site";
 import { Button } from "@/components/ui/Button";
-import { HeroCodeBackground } from "@/components/HeroCodeBackground";
+import { HeroTopologyBackground } from "@/components/HeroTopologyBackground";
 import { cn } from "@/lib/cn";
 
 const FULL_HEADLINE = "full-stack developer";
@@ -122,8 +122,8 @@ export function Hero() {
       className="relative border-b border-border bg-bg overflow-hidden flex flex-col justify-between items-center min-h-[calc(100vh-56px)] min-h-[560px]"
       id="hero"
     >
-      {/* Background Code Layer */}
-      <HeroCodeBackground />
+      {/* Topographic Contour Background */}
+      <HeroTopologyBackground />
 
       {/* Centered Content Container */}
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 flex flex-col justify-between items-center text-center min-w-0">
