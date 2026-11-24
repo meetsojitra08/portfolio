@@ -91,6 +91,7 @@ export const Button = React.forwardRef<
             aria-label={props["aria-label"]}
           >
             {content}
+            {external && <span className="sr-only"> (opens in a new tab)</span>}
           </a>
         );
       }

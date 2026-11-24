@@ -1,6 +1,7 @@
 import * as React from "react";
 import { siteConfig } from "@/content/site";
 import { SectionLabel } from "@/components/SectionLabel";
+import { Reveal } from "@/components/Reveal";
 import { GraduationCap, Award } from "lucide-react";
 
 export function Education() {
@@ -17,51 +18,55 @@ export function Education() {
       {/* Compact Row */}
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-border bg-surface/20">
         {/* Education Cell (5 cols) */}
-        <div className="md:col-span-5 p-6 sm:p-8 space-y-3">
-          <div className="flex items-center gap-2 text-accent">
-            <GraduationCap className="w-4 h-4 stroke-[1.5]" />
-            <span className="font-mono text-[10px] uppercase tracking-wider font-semibold">
-              ACADEMIC DEGREE
-            </span>
-          </div>
+        <Reveal delay={0} className="md:col-span-5 h-full">
+          <div className="p-6 sm:p-8 space-y-3 h-full">
+            <div className="flex items-center gap-2 text-accent">
+              <GraduationCap className="w-4 h-4 stroke-[1.5]" />
+              <span className="font-mono text-[10px] uppercase tracking-wider font-semibold">
+                ACADEMIC DEGREE
+              </span>
+            </div>
 
-          <h3 className="font-display text-lg uppercase tracking-wider text-text">
-            {siteConfig.education.degree}
-          </h3>
+            <h3 className="font-display text-lg uppercase tracking-wider text-text">
+              {siteConfig.education.degree}
+            </h3>
 
-          <div className="font-mono text-xs text-text-muted space-y-1">
-            <div>{siteConfig.education.institution}</div>
-            <div className="flex items-center gap-2 pt-1">
-              <span className="text-text font-medium">{siteConfig.education.period}</span>
-              <span className="text-border">·</span>
-              <span className="text-accent font-medium">{siteConfig.education.detail}</span>
+            <div className="font-mono text-xs text-text-muted space-y-1">
+              <div>{siteConfig.education.institution}</div>
+              <div className="flex items-center gap-2 pt-1">
+                <span className="text-text font-medium">{siteConfig.education.period}</span>
+                <span className="text-border">·</span>
+                <span className="text-accent font-medium">{siteConfig.education.detail}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Certifications Cell (7 cols) */}
-        <div className="md:col-span-7 p-6 sm:p-8 space-y-3">
-          <div className="flex items-center gap-2 text-accent">
-            <Award className="w-4 h-4 stroke-[1.5]" />
-            <span className="font-mono text-[10px] uppercase tracking-wider font-semibold">
-              CERTIFICATIONS
-            </span>
-          </div>
+        <Reveal delay={60} className="md:col-span-7 h-full">
+          <div className="p-6 sm:p-8 space-y-3 h-full">
+            <div className="flex items-center gap-2 text-accent">
+              <Award className="w-4 h-4 stroke-[1.5]" />
+              <span className="font-mono text-[10px] uppercase tracking-wider font-semibold">
+                CERTIFICATIONS
+              </span>
+            </div>
 
-          <ul className="space-y-2.5 font-mono text-xs text-text-muted pt-1">
-            {siteConfig.certifications.map((cert) => (
-              <li
-                key={cert.title}
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-border/40 last:border-b-0 last:pb-0"
-              >
-                <span className="text-text font-medium">{cert.title}</span>
-                <span className="text-text-muted/80 text-[11px] shrink-0">
-                  {cert.issuer} · {cert.year}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+            <ul className="space-y-2.5 font-mono text-xs text-text-muted pt-1">
+              {siteConfig.certifications.map((cert) => (
+                <li
+                  key={cert.title}
+                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-border/40 last:border-b-0 last:pb-0"
+                >
+                  <span className="text-text font-medium">{cert.title}</span>
+                  <span className="text-text-muted/80 text-[11px] shrink-0">
+                    {cert.issuer} · {cert.year}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ import { projects, allProjectsUrl } from "@/content/projects";
 import { ProjectRow } from "@/components/ProjectRow";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/Reveal";
 import { ArrowUpRight } from "lucide-react";
 
 export function Projects() {
@@ -19,18 +20,19 @@ export function Projects() {
       {/* Projects Rows Container */}
       <div className="max-w-[1280px] mx-auto">
         {projects.map((project, idx) => (
-          <ProjectRow
-            key={project.id}
-            index={project.index}
-            title={project.title}
-            description={project.description}
-            highlight={project.highlight}
-            tags={project.tags}
-            image={project.image}
-            live={project.live}
-            github={project.github}
-            flip={idx % 2 === 1}
-          />
+          <Reveal key={project.id} delay={idx * 60}>
+            <ProjectRow
+              index={project.index}
+              title={project.title}
+              description={project.description}
+              highlight={project.highlight}
+              tags={project.tags}
+              image={project.image}
+              live={project.live}
+              github={project.github}
+              flip={idx % 2 === 1}
+            />
+          </Reveal>
         ))}
       </div>
 
