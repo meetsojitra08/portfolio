@@ -86,7 +86,7 @@ export function Header() {
         <Link
           href="/"
           className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
-          aria-label="Meet Sojitra - Home"
+          aria-label="MS - Meet Sojitra Home"
         >
           <div className="w-8 h-8 rounded border border-border bg-surface group-hover:border-accent transition-colors flex items-center justify-center font-display text-sm font-bold text-accent">
             {siteConfig.identity.monogram}

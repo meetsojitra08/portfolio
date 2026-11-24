@@ -136,7 +136,7 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-text-muted">
         <div>{siteConfig.footer.copyright}</div>
-        <div className="text-[11px] text-text-muted/70">
+        <div className="text-[11px] text-text-muted">
           {siteConfig.footer.builtWith}
         </div>
         <button

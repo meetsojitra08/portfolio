@@ -76,7 +76,7 @@ export function Hero() {
                 scroll to explore
               </span>
             </a>
-            <span className="hidden sm:inline-block text-[11px] text-text-muted/60 tracking-wider">
+            <span className="hidden sm:inline-block text-[11px] text-text-muted tracking-wider">
               {siteConfig.identity.name} · PORTFOLIO 2026
             </span>
           </div>
