@@ -7,9 +7,9 @@ export function About() {
   return (
     <section className="border-b border-border bg-bg" id="about">
       {/* Header Bar */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 border-b border-border flex items-center justify-between">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-5 sm:py-6 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
         <SectionLabel label="about" number="developer" />
-        <span className="font-mono text-[11px] uppercase tracking-wider text-text-muted">
+        <span className="hidden sm:inline-block font-mono text-[11px] uppercase tracking-wider text-text-muted">
           ENGINEERING ETHOS & PROFILE
         </span>
       </div>
@@ -46,13 +46,13 @@ export function About() {
             </div>
 
             {/* 3 Stats Grid */}
-            <div className="grid grid-cols-3 gap-3 border-t border-border pt-6">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 border-t border-border pt-6">
               {siteConfig.about.stats.map((stat) => (
-                <div key={stat.label} className="border border-border/60 p-3 rounded bg-surface/40">
-                  <div className="font-display text-xl sm:text-2xl text-accent font-bold">
+                <div key={stat.label} className="border border-border/60 p-2.5 sm:p-3 rounded bg-surface/40 min-w-0">
+                  <div className="font-display text-lg sm:text-2xl text-accent font-bold truncate">
                     {stat.value}
                   </div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-text-muted mt-1 leading-tight">
+                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-text-muted mt-1 leading-tight break-words">
                     {stat.label}
                   </div>
                 </div>

@@ -12,7 +12,7 @@ export function Projects() {
       {/* Section Header Bar */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <SectionLabel label="selected projects" number="02" />
-        <span className="font-mono text-[11px] uppercase tracking-wider text-text-muted">
+        <span className="hidden sm:inline-block font-mono text-[11px] uppercase tracking-wider text-text-muted">
           02 AI-POWERED PLATFORMS · VERIFIED METRICS
         </span>
       </div>
@@ -37,10 +37,7 @@ export function Projects() {
       </div>
 
       {/* Bottom Bar: View All Projects */}
-      <div className="max-w-[1280px] mx-auto p-6 sm:p-8 flex items-center justify-center sm:justify-between bg-surface/20">
-        <span className="hidden sm:inline-block font-mono text-xs text-text-muted">
-          Interested in more repositories & tools?
-        </span>
+      <div className="max-w-[1280px] mx-auto p-6 sm:p-8 flex items-center justify-center bg-surface/20">
         <Button
           variant="secondary"
           href={allProjectsUrl}

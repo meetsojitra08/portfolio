@@ -8,9 +8,9 @@ export function Education() {
   return (
     <section className="border-b border-border bg-bg" id="education">
       {/* Header Bar */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-5 border-b border-border flex items-center justify-between">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-5 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
         <SectionLabel label="credentials" number="education & certifications" />
-        <span className="font-mono text-[11px] uppercase tracking-wider text-text-muted">
+        <span className="hidden sm:inline-block font-mono text-[11px] uppercase tracking-wider text-text-muted">
           ACADEMIC & CERTIFIED FOUNDATION
         </span>
       </div>

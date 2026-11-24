@@ -51,7 +51,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="pt-8 border-t border-border/40 font-mono text-xs text-text-muted flex items-center justify-between">
+            <div className="pt-8 border-t border-border/40 font-mono text-xs text-text-muted flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span>LOCATION: {siteConfig.identity.location}</span>
               <span className="text-accent font-medium">AVAILABLE NOW</span>
             </div>
@@ -126,9 +126,7 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="pt-6 font-mono text-[11px] text-text-muted border-t border-border/40">
-              Skimmed in 30 seconds? Reach out directly via email.
-            </div>
+
           </div>
         </Reveal>
       </div>

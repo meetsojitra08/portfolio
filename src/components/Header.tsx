@@ -85,7 +85,7 @@ export function Header() {
         {/* Left: MS Monogram */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+          className="flex items-center gap-2.5 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
           aria-label="MS - Meet Sojitra Home"
         >
           <div className="w-8 h-8 rounded border border-border bg-surface group-hover:border-accent transition-colors flex items-center justify-center font-display text-sm font-bold text-accent">
@@ -130,7 +130,7 @@ export function Header() {
         </div>
 
         {/* Mobile Header Controls (< md) */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-2 shrink-0">
           <ThemeToggle />
           <button
             ref={triggerRef}

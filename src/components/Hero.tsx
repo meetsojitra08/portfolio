@@ -12,32 +12,37 @@ export function Hero() {
   const pickwise = projects[0];
 
   return (
-    <section className="relative border-b border-border bg-bg" id="hero">
+    <section className="relative border-b border-border bg-bg overflow-x-hidden" id="hero">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-56px)]">
         {/* Left Column (7 cols on desktop) */}
-        <div className="lg:col-span-7 p-6 sm:p-10 lg:p-14 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border space-y-10">
+        <div className="lg:col-span-7 p-6 sm:p-10 lg:p-14 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border space-y-10 min-w-0">
           <div className="space-y-6">
             {/* Availability Row */}
-            <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 py-1.5 px-3 rounded border border-border bg-surface/60 font-mono text-[11px] tracking-wider uppercase text-text-muted">
-              <span className="flex items-center gap-1.5 text-text font-medium">
-                <span className="w-2 h-2 rounded-full bg-accent inline-block animate-pulse motion-reduce:animate-none" />
-                {siteConfig.identity.availability}
-              </span>
-              <span className="text-border" aria-hidden="true">|</span>
-              <span className="flex items-center gap-1">
-                <span className="text-accent" aria-hidden="true">⌖</span>
-                AHMEDABAD, INDIA
-              </span>
-              <span className="text-border" aria-hidden="true">|</span>
-              <span>UTC +5:30</span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2.5 py-2 px-3 rounded border border-border bg-surface/60 font-mono text-[10px] sm:text-[11px] tracking-wider uppercase text-text-muted w-full sm:w-fit">
+              <div className="flex items-center gap-1.5 text-text font-medium">
+                <span className="w-2 h-2 rounded-full bg-accent inline-block animate-pulse motion-reduce:animate-none shrink-0" />
+                <span>{siteConfig.identity.availability}</span>
+              </div>
+              <div className="flex items-center gap-2 text-text-muted">
+                <span className="text-border hidden sm:inline" aria-hidden="true">|</span>
+                <span className="flex items-center gap-1">
+                  <span className="text-accent" aria-hidden="true">⌖</span>
+                  <span>AHMEDABAD, INDIA</span>
+                </span>
+                <span className="text-border" aria-hidden="true">|</span>
+                <span>UTC +5:30</span>
+              </div>
             </div>
 
             {/* H1 with Blinking Underscore Cursor */}
             <div className="space-y-3">
-              <h1 className="font-display text-[clamp(2.5rem,6.5vw,5.25rem)] uppercase leading-[1.05] tracking-tight text-text">
-                full-stack developer
-                <span className="text-accent cursor-blink" aria-hidden="true">
-                  _
+              <h1 className="font-display text-[clamp(2.25rem,6.5vw,5.25rem)] uppercase leading-[1.05] tracking-tight text-text">
+                <span className="block">full-stack</span>
+                <span className="block">
+                  developer
+                  <span className="text-accent cursor-blink" aria-hidden="true">
+                    _
+                  </span>
                 </span>
               </h1>
               <p className="font-mono text-sm sm:text-base text-text-muted max-w-xl leading-relaxed">
@@ -83,11 +88,11 @@ export function Hero() {
         </div>
 
         {/* Right Column: Featured Project Card (PickWise) (5 cols on desktop) */}
-        <div className="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between bg-surface/30 space-y-6">
+        <div className="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between bg-surface/30 space-y-6 min-w-0">
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <SectionLabel label="featured project" number="01" />
-              <Tag variant="accent">
+              <Tag variant="accent" className="self-start sm:self-auto shrink-0">
                 {pickwise.highlight || "~350 ms recommendations"}
               </Tag>
             </div>
@@ -152,20 +157,20 @@ export function Hero() {
               </div>
 
               {/* 3-item Meta Row */}
-              <div className="grid grid-cols-3 gap-2 border-t border-border/60 pt-3 text-center font-mono text-[10px] uppercase tracking-wider">
-                <div className="border-r border-border/60 pr-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 border-t border-border/60 pt-3 text-center font-mono text-[10px] uppercase tracking-wider">
+                <div className="sm:border-r border-border/60 sm:pr-2 flex sm:block justify-between items-center py-1 sm:py-0 border-b sm:border-b-0 border-border/40">
                   <span className="text-text-muted block text-[9px]">ROLE</span>
-                  <span className="text-text font-medium">
+                  <span className="text-text font-medium truncate block">
                     {pickwise.featuredMeta?.role || "Full-stack"}
                   </span>
                 </div>
-                <div className="border-r border-border/60 pr-2">
+                <div className="sm:border-r border-border/60 sm:pr-2 flex sm:block justify-between items-center py-1 sm:py-0 border-b sm:border-b-0 border-border/40">
                   <span className="text-text-muted block text-[9px]">STACK</span>
-                  <span className="text-text font-medium">FastAPI / React</span>
+                  <span className="text-text font-medium truncate block">FastAPI / React</span>
                 </div>
-                <div>
+                <div className="flex sm:block justify-between items-center py-1 sm:py-0">
                   <span className="text-text-muted block text-[9px]">STATUS</span>
-                  <span className="text-accent font-medium">
+                  <span className="text-accent font-medium truncate block">
                     ● {pickwise.status}
                   </span>
                 </div>
