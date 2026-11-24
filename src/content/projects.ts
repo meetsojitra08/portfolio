@@ -11,7 +11,7 @@ export interface Project {
   description: string;
   highlight?: string;
   tags: string[];
-  image?: string; // TODO(meet): screenshot of live site (1440×900) -> /public/images/xxx.webp
+  image?: string;
   live?: string;
   github?: string;
   status: "Live";
@@ -34,7 +34,6 @@ export const projects: Project[] = [
     live: "https://pick-wise-roan.vercel.app/",
     github: "https://github.com/meetsojitra08/PickWise",
     status: "Live",
-    // TODO(meet): screenshot of live site (1440×900) saved as /public/images/pickwise.webp
     image: "/images/pickwise.webp",
     featuredMeta: {
       role: "Full-stack",
@@ -53,7 +52,6 @@ export const projects: Project[] = [
     live: "https://bugsence-lilac.vercel.app/",
     github: "https://github.com/meetsojitra08/bugsence",
     status: "Live",
-    // TODO(meet): screenshot of live site (1440×900) saved as /public/images/bugsence.webp
     image: "/images/bugsence.webp",
   },
 ];

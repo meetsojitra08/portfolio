@@ -49,7 +49,7 @@ export interface SiteConfig {
     linkedin: string;
     monogram: string;
     availability: string;
-    resumeUrl: string; // TODO(meet): add the PDF to /public/Meet-Sojitra-Resume.pdf
+    resumeUrl: string;
   };
   meta: {
     title: string;
@@ -97,7 +97,6 @@ export const siteConfig: SiteConfig = {
     linkedin: "https://www.linkedin.com/in/meet-sojitra-8375a032a",
     monogram: "MS",
     availability: "OPEN TO FULL-TIME ROLES",
-    // TODO(meet): add the PDF to /public/Meet-Sojitra-Resume.pdf
     resumeUrl: "/Meet-Sojitra-Resume.pdf",
   },
   meta: {
@@ -124,7 +123,6 @@ export const siteConfig: SiteConfig = {
     },
     ctaSecondary: {
       label: "Download resume",
-      // TODO(meet): add the PDF
       href: "/Meet-Sojitra-Resume.pdf",
     },
   },
