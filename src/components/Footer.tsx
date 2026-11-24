@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 import { GithubIcon } from "@/components/icons/GithubIcon";
+import { ApiPanel } from "@/components/ApiPanel";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -21,12 +22,12 @@ export function Footer() {
       {/* Contact CTA Section */}
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-b border-border">
         {/* Left / Main Column */}
-        <Reveal delay={0} className="lg:col-span-7 border-b lg:border-b-0 lg:border-r border-border h-full">
-          <div className="p-6 sm:p-10 lg:p-14 space-y-8 flex flex-col justify-between h-full">
+        <Reveal delay={0} className="lg:col-span-6 border-b lg:border-b-0 lg:border-r border-border h-full">
+          <div className="p-6 sm:p-10 lg:p-12 space-y-8 flex flex-col justify-between h-full">
             <div className="space-y-6">
-              <SectionLabel label="contact" number="let's talk" />
+              <SectionLabel as="div" label="contact" number="let's talk" />
 
-              <h2 className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[1.08] tracking-tight text-text">
+              <h2 className="font-display text-[clamp(2rem,5vw,3.75rem)] uppercase leading-[1.08] tracking-tight text-text">
                 let&apos;s build something together
                 <span className="text-accent cursor-blink" aria-hidden="true">
                   _
@@ -58,72 +59,78 @@ export function Footer() {
           </div>
         </Reveal>
 
-        {/* Right Column: Bordered Link Rows */}
-        <Reveal delay={60} className="lg:col-span-5 h-full">
-          <div className="p-6 sm:p-10 flex flex-col justify-between bg-surface/20 space-y-4 h-full">
-            <div className="space-y-3">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-text-muted block mb-4">
+        {/* Right Column: ApiPanel + Direct Connections */}
+        <Reveal delay={60} className="lg:col-span-6 h-full">
+          <div className="p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-surface/20 space-y-6 h-full">
+            {/* High-differentiation Developer API Panel */}
+            <ApiPanel />
+
+            {/* Direct Connections */}
+            <div className="space-y-3 pt-2">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-text-muted block">
                 Direct Connections
               </span>
 
-              {/* GitHub Row */}
-              <a
-                href={siteConfig.identity.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between p-4 rounded border border-border bg-surface/50 hover:border-text-muted hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                aria-label="GitHub Profile (opens in new tab)"
-              >
-                <div className="flex items-center gap-3">
-                  <GithubIcon className="w-4 h-4 text-text-muted group-hover:text-text transition-colors" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-text font-medium">
-                    GitHub
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                {/* GitHub Row */}
+                <a
+                  href={siteConfig.identity.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-3 rounded border border-border bg-surface/50 hover:border-text-muted hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+                  aria-label="GitHub Profile (opens in new tab)"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <GithubIcon className="w-4 h-4 text-text-muted group-hover:text-text transition-colors" />
+                    <span className="font-mono text-xs uppercase tracking-wider text-text font-medium">
+                      GitHub
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-120 motion-reduce:transform-none">
+                    ↗
                   </span>
-                </div>
-                <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-120 motion-reduce:transform-none">
-                  ↗
-                </span>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
 
-              {/* LinkedIn Row */}
-              <a
-                href={siteConfig.identity.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between p-4 rounded border border-border bg-surface/50 hover:border-text-muted hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                aria-label="LinkedIn Profile (opens in new tab)"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs font-bold text-text-muted group-hover:text-accent transition-colors">
-                    in
+                {/* LinkedIn Row */}
+                <a
+                  href={siteConfig.identity.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-3 rounded border border-border bg-surface/50 hover:border-text-muted hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+                  aria-label="LinkedIn Profile (opens in new tab)"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className="font-mono text-xs font-bold text-text-muted group-hover:text-accent transition-colors">
+                      in
+                    </span>
+                    <span className="font-mono text-xs uppercase tracking-wider text-text font-medium">
+                      LinkedIn
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-120 motion-reduce:transform-none">
+                    ↗
                   </span>
-                  <span className="font-mono text-xs uppercase tracking-wider text-text font-medium">
-                    LinkedIn
-                  </span>
-                </div>
-                <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-120 motion-reduce:transform-none">
-                  ↗
-                </span>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
 
-              {/* Email Row */}
-              <a
-                href={`mailto:${siteConfig.identity.email}`}
-                className="group flex items-center justify-between p-4 rounded border border-border bg-surface/50 hover:border-text-muted hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                aria-label={`Send email to ${siteConfig.identity.email}`}
-              >
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-text-muted group-hover:text-text transition-colors stroke-[1.5]" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-text font-medium">
-                    Email
+                {/* Email Row */}
+                <a
+                  href={`mailto:${siteConfig.identity.email}`}
+                  className="group flex items-center justify-between p-3 rounded border border-border bg-surface/50 hover:border-text-muted hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+                  aria-label={`Send email to ${siteConfig.identity.email}`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Mail className="w-4 h-4 text-text-muted group-hover:text-text transition-colors stroke-[1.5]" />
+                    <span className="font-mono text-xs uppercase tracking-wider text-text font-medium">
+                      Email
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-120 motion-reduce:transform-none">
+                    ↗
                   </span>
-                </div>
-                <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-120 motion-reduce:transform-none">
-                  ↗
-                </span>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
         </Reveal>

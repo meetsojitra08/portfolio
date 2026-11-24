@@ -108,17 +108,17 @@ export const siteConfig: SiteConfig = {
     url: "https://meetsojitra.dev",
   },
   navigation: [
-    { label: "projects", href: "#projects" },
-    { label: "about", href: "#about" },
-    { label: "skills", href: "#skills" },
-    { label: "experience", href: "#experience" },
-    { label: "contact", href: "#contact" },
+    { label: "PROJECTS", href: "#projects" },
+    { label: "ABOUT", href: "#about" },
+    { label: "SKILLS", href: "#skills" },
+    { label: "EXPERIENCE", href: "#experience" },
+    { label: "CONTACT", href: "#contact" },
   ],
   hero: {
     headline: "full-stack developer_",
     subhead:
       "I build reliable APIs and clear React interfaces, from database to browser.",
-    metaRow: ["OPEN TO FULL-TIME ROLES", "AHMEDABAD, INDIA", "UTC +5:30"],
+    metaRow: ["MEET SOJITRA", "OPEN TO FULL-TIME ROLES", "AHMEDABAD, INDIA", "UTC +5:30"],
     ctaPrimary: {
       label: "Email me",
       href: "mailto:meetsojitra314@gmail.com",

@@ -3,11 +3,16 @@
  * Source of truth: docs/03-CONTENT.md
  */
 
+export interface SkillItem {
+  name: string;
+  primary?: boolean;
+}
+
 export interface SkillCategory {
   index: string;
   title: string;
   description: string;
-  skills: string[];
+  skills: SkillItem[];
 }
 
 export const coreStack: string[] = [
@@ -25,10 +30,10 @@ export const skillCategories: SkillCategory[] = [
     title: "BACKEND",
     description: "Designing and building APIs and business logic.",
     skills: [
-      "Python, Django, Django REST Framework, FastAPI",
-      "Ruby on Rails",
-      "Authentication, authorization, role-based access control",
-      "Data validation (Pydantic), third-party integrations",
+      { name: "Python, Django, Django REST Framework, FastAPI", primary: true },
+      { name: "Authentication, authorization, role-based access control", primary: true },
+      { name: "Data validation (Pydantic), third-party integrations", primary: true },
+      { name: "Ruby on Rails", primary: false },
     ],
   },
   {
@@ -36,10 +41,10 @@ export const skillCategories: SkillCategory[] = [
     title: "FRONTEND",
     description: "Responsive interfaces that stay easy to maintain.",
     skills: [
-      "React.js, TypeScript, JavaScript",
-      "Tailwind CSS, HTML5, CSS3",
-      "Reusable component libraries",
-      "Frontend ↔ API integration",
+      { name: "React.js, TypeScript, JavaScript", primary: true },
+      { name: "Tailwind CSS, HTML5, CSS3", primary: true },
+      { name: "Frontend ↔ API integration", primary: true },
+      { name: "Reusable component libraries", primary: false },
     ],
   },
   {
@@ -47,10 +52,11 @@ export const skillCategories: SkillCategory[] = [
     title: "DATA & WORKFLOW",
     description: "Storing data well and shipping it cleanly.",
     skills: [
-      "PostgreSQL, MySQL, Redis, SQL",
-      "RESTful API design, MVC, OOP",
-      "Git, GitHub, Linux",
-      "AI coding tools (Claude Code, Codex)",
+      { name: "PostgreSQL, Redis, SQL", primary: true },
+      { name: "RESTful API design, MVC, OOP", primary: true },
+      { name: "Git, GitHub, Linux", primary: true },
+      { name: "AI coding tools (Claude Code, Codex)", primary: true },
+      { name: "MySQL", primary: false },
     ],
   },
 ];

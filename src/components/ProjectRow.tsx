@@ -7,6 +7,7 @@ import { TextLink } from "@/components/ui/TextLink";
 export interface ProjectRowProps {
   index: string;
   title: string;
+  scope?: string;
   description: string;
   highlight?: string;
   tags: string[];
@@ -21,6 +22,7 @@ export interface ProjectRowProps {
 export function ProjectRow({
   index,
   title,
+  scope,
   description,
   highlight,
   tags,
@@ -46,10 +48,17 @@ export function ProjectRow({
           )}
         </div>
 
-        {/* Title */}
-        <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-wider text-text">
-          {title}
-        </h3>
+        {/* Title and Scope */}
+        <div>
+          <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-wider text-text">
+            {title}
+          </h3>
+          {scope && (
+            <span className="inline-block mt-2 px-2 py-0.5 rounded border border-border/80 bg-surface/50 font-mono text-[10px] tracking-wider uppercase text-text-muted">
+              {scope}
+            </span>
+          )}
+        </div>
 
         {/* Description */}
         <p className="font-mono text-sm sm:text-base text-text-muted leading-relaxed max-w-xl">
@@ -95,6 +104,7 @@ export function ProjectRow({
             src={image}
             alt={`${title} project interface preview`}
             fill
+            quality={85}
             sizes="(max-width: 1024px) 100vw, 600px"
             className={cn(
               "object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transform-none",

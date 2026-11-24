@@ -38,15 +38,27 @@ export function Skills() {
                 </p>
               </div>
 
-              {/* Square Bullet List */}
-              <ul className="space-y-3 font-mono text-xs text-text border-t border-border/60 pt-6">
+              {/* Square Bullet List with Primary/Familiar Distinction */}
+              <ul className="space-y-3 font-mono text-xs border-t border-border/60 pt-6">
                 {cat.skills.map((skill) => (
-                  <li key={skill} className="flex items-start gap-2.5">
+                  <li key={skill.name} className="flex items-start gap-2.5">
                     <span
-                      className="w-1.5 h-1.5 bg-accent inline-block mt-1.5 shrink-0"
+                      className={
+                        skill.primary
+                          ? "w-1.5 h-1.5 bg-accent inline-block mt-1.5 shrink-0"
+                          : "w-1.5 h-1.5 border border-border inline-block mt-1.5 shrink-0 bg-surface/50"
+                      }
                       aria-hidden="true"
                     />
-                    <span className="leading-relaxed">{skill}</span>
+                    <span
+                      className={
+                        skill.primary
+                          ? "leading-relaxed text-text font-medium"
+                          : "leading-relaxed text-text-muted"
+                      }
+                    >
+                      {skill.name}
+                    </span>
                   </li>
                 ))}
               </ul>

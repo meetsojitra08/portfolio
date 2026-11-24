@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ArrowUpRight } from "lucide-react";
 import { experiences } from "@/content/experience";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
@@ -28,9 +29,27 @@ export function Experience() {
                     {exp.type}
                   </span>
                   <h3 className="font-display text-2xl uppercase tracking-wider text-text">
-                    {exp.company}
+                    {exp.companyUrl ? (
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 hover:text-accent transition-colors group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded"
+                        aria-label={`${exp.company} website (opens in a new tab)`}
+                      >
+                        <span>{exp.company}</span>
+                        <ArrowUpRight className="w-4 h-4 text-text-muted group-hover:text-accent transition-colors" />
+                      </a>
+                    ) : (
+                      exp.company
+                    )}
                   </h3>
-                  <div className="font-mono text-sm text-text font-medium">
+                  {exp.companyDescription && (
+                    <p className="font-mono text-xs text-text-muted leading-relaxed">
+                      {exp.companyDescription}
+                    </p>
+                  )}
+                  <div className="font-mono text-sm text-text font-medium pt-0.5">
                     {exp.role}
                   </div>
                 </div>

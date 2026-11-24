@@ -7,6 +7,8 @@
 export interface ExperienceItem {
   id: string;
   company: string;
+  companyDescription?: string;
+  companyUrl?: string;
   role: string;
   type: string;
   period: string;
@@ -18,33 +20,37 @@ export const experiences: ExperienceItem[] = [
   {
     id: "mantham-technologies",
     company: "Mantham Technologies",
+    companyDescription: "B2B web application consultancy",
+    companyUrl: "https://manthamtechnologies.com", // TODO(meet): confirm URL
     role: "Software Developer",
     type: "Full-Time",
     period: "June 2026 – Nov 2026",
     location: "Surat / Remote",
     bullets: [
-      "Developed custom web application modules using Python, Django, Django REST Framework, and React.",
-      "Implemented REST APIs, authentication, business logic, and database integrations.",
-      "Built reusable React components and responsive interfaces for business applications.",
-      "Integrated frontend workflows with backend services and managed application data in PostgreSQL.",
-      "Implemented data validation, database operations, and role-based access control.",
-      "Resolved application issues and improved API reliability, code maintainability, and performance.",
+      "Architected and delivered custom full-stack web application modules combining Python, Django, Django REST Framework, and React.",
+      "Engineered secure REST APIs with session/token authentication, complex business logic, and relational database integrations.",
+      "Designed reusable React component systems and responsive client interfaces tailored for business-critical client workflows.",
+      "Connected frontend state machines to backend REST endpoints with optimized PostgreSQL queries and relational schema management.",
+      "Enforced data integrity with strict input validation and implemented fine-grained role-based access control (RBAC).",
+      "Diagnosed production bugs, refactored legacy endpoints, and fortified API reliability and maintainability across deployment cycles.",
     ],
   },
   {
     id: "essence-solusoft",
     company: "Essence Solusoft",
+    companyDescription: "SaaS product studio — project management + Shopify apps",
+    companyUrl: "https://essencesolusoft.com", // TODO(meet): confirm URL
     role: "Software Intern & Developer",
     type: "Full-Time",
     period: "July 2025 – Feb 2026",
     location: "Ahmedabad",
     bullets: [
-      "Built task and sprint workflows with custom status automation, real-time search, and synchronization.",
-      "Added idle-time monitoring and performance dashboards for employee productivity tracking.",
-      "Streamlined HR operations: attendance, leave management, and recruitment workflows.",
-      "Integrated Slack and Firebase APIs for automated notifications, hour logging, and collaboration.",
-      "Developed Shopify bundle features: Build Your Box, Buy Together, checkout previews, variant selection.",
-      "Implemented subscription-based bundle limits, Shopify discount functionality, and analytics optimizations; resolved production issues.",
+      "Engineered core task and sprint management workflows with automated status transitions, instant search, and real-time state synchronization.",
+      "Designed and shipped employee productivity dashboards featuring idle-time tracking algorithms and activity analytics.",
+      "Automated HR operational pipelines encompassing attendance tracking, leave approval workflows, and structured recruitment processes.",
+      "Integrated Slack webhooks and Firebase Cloud APIs to orchestrate automated event notifications, work-hour logging, and team alerts.",
+      "Developed custom Shopify storefront bundle engines, including 'Build Your Box', 'Buy Together', live checkout previews, and dynamic variant selectors.",
+      "Engineered tiered subscription-based bundle limits, native Shopify discount logic, and cart performance optimizations; triaged and fixed critical production issues.",
     ],
   },
 ];

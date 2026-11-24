@@ -127,15 +127,21 @@ export function Hero() {
 
       {/* Centered Content Container */}
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 flex flex-col justify-between items-center text-center min-w-0">
-        {/* Availability Row */}
+        {/* Availability / Identifier Row */}
         <div className="w-full flex justify-center pt-2 sm:pt-4">
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 py-1.5 sm:py-2 px-3.5 sm:px-4 rounded border border-border bg-surface/80 backdrop-blur-xs font-mono text-[10px] sm:text-[11px] tracking-wider uppercase text-text-muted shadow-xs">
+            <div className="flex items-center text-text font-bold">
+              <span>{siteConfig.hero.metaRow[0]}</span>
+            </div>
+            <span className="text-border" aria-hidden="true">
+              |
+            </span>
             <div className="flex items-center gap-1.5 text-text font-medium">
               <span
                 className="w-2 h-2 rounded-full bg-accent inline-block animate-pulse motion-reduce:animate-none shrink-0"
                 aria-hidden="true"
               />
-              <span>OPEN TO FULL-TIME ROLES</span>
+              <span>{siteConfig.hero.metaRow[1]}</span>
             </div>
             <span className="text-border" aria-hidden="true">
               |
@@ -144,12 +150,12 @@ export function Hero() {
               <span className="text-accent" aria-hidden="true">
                 ⌖
               </span>
-              <span>AHMEDABAD, INDIA</span>
+              <span>{siteConfig.hero.metaRow[2]}</span>
             </div>
             <span className="text-border" aria-hidden="true">
               |
             </span>
-            <span>UTC +5:30</span>
+            <span>{siteConfig.hero.metaRow[3]}</span>
           </div>
         </div>
 

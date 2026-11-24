@@ -24,6 +24,7 @@ export function Projects() {
             <ProjectRow
               index={project.index}
               title={project.title}
+              scope={project.scope}
               description={project.description}
               highlight={project.highlight}
               tags={project.tags}

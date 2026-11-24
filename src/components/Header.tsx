@@ -7,15 +7,44 @@ import { siteConfig } from "@/content/site";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
+import { GithubIcon } from "@/components/icons/GithubIcon";
+import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
+import { cn } from "@/lib/cn";
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState<string>("");
   const menuRef = React.useRef<HTMLDivElement>(null);
   const triggerRef = React.useRef<HTMLButtonElement>(null);
 
   const closeMenu = React.useCallback(() => {
     setIsOpen(false);
     triggerRef.current?.focus();
+  }, []);
+
+  // IntersectionObserver to dynamically track the active section for nav indicator & aria-current
+  React.useEffect(() => {
+    const navHrefs = siteConfig.navigation.map((item) => item.href.replace("#", ""));
+    const targets = navHrefs
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (targets.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-25% 0px -50% 0px" }
+    );
+
+    targets.forEach((target) => observer.observe(target));
+
+    return () => observer.disconnect();
   }, []);
 
   React.useEffect(() => {
@@ -82,41 +111,71 @@ export function Header() {
       </a>
 
       <div className="max-w-[1280px] mx-auto h-14 px-4 sm:px-6 flex items-center justify-between gap-4">
-        {/* Left: MS Monogram */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
-          aria-label="MS - Meet Sojitra Home"
-        >
-          <div className="w-8 h-8 rounded border border-border bg-surface group-hover:border-accent transition-colors flex items-center justify-center font-display text-sm font-bold text-accent">
-            {siteConfig.identity.monogram}
-          </div>
-          <span className="hidden sm:inline-block font-mono text-xs uppercase tracking-wider text-text-muted group-hover:text-text transition-colors">
-            {siteConfig.identity.name}
-          </span>
-        </Link>
+        {/* Left: MS Monogram + Name (Equal Flex 1) */}
+        <div className="flex-1 flex items-center justify-start min-w-0">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+            aria-label="MS - Meet Sojitra Home"
+          >
+            <div className="w-8 h-8 rounded border border-border bg-surface group-hover:border-accent transition-colors flex items-center justify-center font-display text-sm font-bold text-accent">
+              {siteConfig.identity.monogram}
+            </div>
+            <span className="hidden sm:inline-block font-mono text-xs uppercase tracking-wider text-text-muted group-hover:text-text transition-colors">
+              {siteConfig.identity.name}
+            </span>
+          </Link>
+        </div>
 
-        {/* Center: Desktop Nav Links */}
+        {/* Center: Desktop Nav Links (Balanced Dead Center) */}
         <nav
-          className="hidden md:flex items-center gap-6"
+          className="hidden md:flex items-center gap-6 lg:gap-7 shrink-0 mx-auto"
           aria-label="Main Navigation"
         >
-          {siteConfig.navigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="font-mono text-xs lowercase tracking-wider text-text-muted hover:text-accent transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
-            >
-              {item.label}
-            </a>
-          ))}
+          {siteConfig.navigation.map((item) => {
+            const isActive = activeSection === item.href.slice(1);
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={cn(
+                  "font-mono text-xs uppercase tracking-widest transition-colors py-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent",
+                  isActive
+                    ? "text-accent font-semibold"
+                    : "text-text-muted hover:text-text"
+                )}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
-        {/* Right: Availability, Resume CTA, Theme Toggle (Desktop) */}
-        <div className="hidden md:flex items-center gap-3">
-          <Tag variant="status" pulse className="hidden lg:inline-flex">
-            {siteConfig.identity.availability}
-          </Tag>
+        {/* Right: Actions & Theme Toggle (Equal Flex 1) */}
+        <div className="hidden md:flex flex-1 items-center justify-end gap-2.5 min-w-0">
+          {/* Social Quick Links */}
+          <div className="flex items-center gap-1.5">
+            <a
+              href={siteConfig.identity.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 border border-border rounded hover:border-text-muted text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+              aria-label="GitHub Profile (opens in new tab)"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href={siteConfig.identity.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 border border-border rounded hover:border-text-muted text-text-muted hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+              aria-label="LinkedIn Profile (opens in new tab)"
+            >
+              <LinkedinIcon className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
           <Button
             variant="primary"
             href={siteConfig.identity.resumeUrl}
@@ -177,19 +236,33 @@ export function Header() {
             </div>
 
             <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
-              {siteConfig.navigation.map((item, idx) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="flex items-center justify-between font-display text-lg uppercase tracking-wider text-text hover:text-accent transition-colors py-3 border-b border-border/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
-                >
-                  <span>{item.label}</span>
-                  <span className="font-mono text-xs text-text-muted">
-                    0{idx + 1}
-                  </span>
-                </a>
-              ))}
+              {siteConfig.navigation.map((item, idx) => {
+                const isActive = activeSection === item.href.slice(1);
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMenu}
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(
+                      "flex items-center justify-between font-display text-lg uppercase tracking-wider transition-colors py-3 border-b border-border/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent",
+                      isActive
+                        ? "text-accent font-bold"
+                        : "text-text hover:text-accent"
+                    )}
+                  >
+                    <span>{item.label}</span>
+                    <span
+                      className={cn(
+                        "font-mono text-xs",
+                        isActive ? "text-accent" : "text-text-muted"
+                      )}
+                    >
+                      0{idx + 1}
+                    </span>
+                  </a>
+                );
+              })}
             </nav>
           </div>
 
