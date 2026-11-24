@@ -33,7 +33,7 @@ export function Skills() {
                   {cat.title}
                 </h3>
 
-                <p className="font-mono text-xs text-text-muted leading-relaxed">
+                <p className="font-mono text-xs text-text-muted leading-relaxed md:min-h-[2.75rem]">
                   {cat.description}
                 </p>
               </div>

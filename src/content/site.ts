@@ -132,7 +132,7 @@ export const siteConfig: SiteConfig = {
     stats: [
       { value: "1+", label: "YEARS EXPERIENCE" },
       { value: "2", label: "AI PRODUCTS SHIPPED" },
-      { value: "B.Tech IT", label: "2021–2025" },
+      { value: "B.Tech", label: "IT · 2021–2025" },
     ],
   },
   process: [

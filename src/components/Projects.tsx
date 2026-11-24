@@ -13,7 +13,7 @@ export function Projects() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <SectionLabel label="selected projects" number="02" />
         <span className="hidden sm:inline-block font-mono text-[11px] uppercase tracking-wider text-text-muted">
-          02 AI-POWERED PLATFORMS · VERIFIED METRICS
+          02 AI-POWERED PLATFORMS
         </span>
       </div>
 
@@ -31,6 +31,8 @@ export function Projects() {
               live={project.live}
               github={project.github}
               flip={idx % 2 === 1}
+              aspectRatio={project.id === "bugsence" ? "aspect-[1024/463]" : "aspect-[16/10]"}
+              imageClassName={project.id === "bugsence" ? "object-cover object-left-top" : "object-cover object-top"}
             />
           </Reveal>
         ))}

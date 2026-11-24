@@ -92,7 +92,7 @@ export function Hero() {
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <SectionLabel label="featured project" number="01" />
-              <Tag variant="accent" className="self-start sm:self-auto shrink-0">
+              <Tag variant="accent" className="self-start sm:self-auto shrink-0 normal-case">
                 {pickwise.highlight || "~350 ms recommendations"}
               </Tag>
             </div>

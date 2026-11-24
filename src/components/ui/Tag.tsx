@@ -17,13 +17,13 @@ export function Tag({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono tracking-wider uppercase select-none",
+        "inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono tracking-wider select-none",
         variant === "default" &&
-          "border border-border bg-surface/50 text-text-muted",
+          "border border-border bg-surface/50 text-text-muted uppercase",
         variant === "accent" &&
-          "border border-accent/40 bg-accent/10 text-accent font-medium",
+          "border border-accent/40 bg-accent/10 text-accent font-medium normal-case",
         variant === "status" &&
-          "border border-border bg-surface text-text font-medium",
+          "border border-border bg-surface text-text font-medium uppercase",
         className
       )}
       {...props}

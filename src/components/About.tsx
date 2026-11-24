@@ -49,10 +49,10 @@ export function About() {
             <div className="grid grid-cols-3 gap-2 sm:gap-3 border-t border-border pt-6">
               {siteConfig.about.stats.map((stat) => (
                 <div key={stat.label} className="border border-border/60 p-2.5 sm:p-3 rounded bg-surface/40 min-w-0">
-                  <div className="font-display text-lg sm:text-2xl text-accent font-bold truncate">
+                  <div className="font-display text-lg sm:text-2xl text-accent font-bold">
                     {stat.value}
                   </div>
-                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-text-muted mt-1 leading-tight break-words">
+                  <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-text-muted mt-1 leading-tight whitespace-normal">
                     {stat.label}
                   </div>
                 </div>

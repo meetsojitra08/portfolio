@@ -14,6 +14,8 @@ export interface ProjectRowProps {
   live?: string;
   github?: string;
   flip?: boolean;
+  aspectRatio?: string;
+  imageClassName?: string;
 }
 
 export function ProjectRow({
@@ -26,6 +28,8 @@ export function ProjectRow({
   live,
   github,
   flip = false,
+  aspectRatio,
+  imageClassName,
 }: ProjectRowProps) {
   const textContent = (
     <div className="p-6 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
@@ -36,7 +40,7 @@ export function ProjectRow({
             {index}
           </span>
           {highlight && (
-            <Tag variant="accent" className="font-mono">
+            <Tag variant="accent" className="font-mono normal-case">
               {highlight}
             </Tag>
           )}
@@ -80,14 +84,22 @@ export function ProjectRow({
 
   const imageContent = (
     <div className="p-6 sm:p-10 lg:p-12 flex items-center justify-center bg-surface/30">
-      <div className="relative aspect-[16/10] w-full rounded border border-border bg-bg overflow-hidden group hover:border-text-muted transition-colors">
+      <div
+        className={cn(
+          "relative w-full rounded border border-border bg-bg overflow-hidden group hover:border-text-muted transition-colors",
+          aspectRatio || "aspect-[16/10]"
+        )}
+      >
         {image && (
           <Image
             src={image}
             alt={`${title} project interface preview`}
             fill
             sizes="(max-width: 1024px) 100vw, 600px"
-            className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transform-none"
+            className={cn(
+              "object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transform-none",
+              imageClassName || "object-top"
+            )}
           />
         )}
       </div>

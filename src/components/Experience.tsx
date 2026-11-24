@@ -10,7 +10,7 @@ export function Experience() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <SectionLabel label="experience" number="where i've worked" />
         <span className="hidden sm:inline-block font-mono text-[11px] uppercase tracking-wider text-text-muted">
-          PROFESSIONAL PRODUCTION TRACK RECORD
+          Work history
         </span>
       </div>
 
