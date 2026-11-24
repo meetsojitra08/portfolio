@@ -2,16 +2,7 @@ import * as React from "react";
 import { ArrowUpRight, ArrowDown, Download } from "lucide-react";
 import { siteConfig } from "@/content/site";
 import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-
-const coreStack = [
-  "PYTHON",
-  "DJANGO",
-  "FASTAPI",
-  "REACT",
-  "TYPESCRIPT",
-  "POSTGRESQL",
-];
+import { HeroApiPanel } from "@/components/HeroApiPanel";
 
 export function Hero() {
   return (
@@ -90,11 +81,11 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Stack at a glance panel on dot grid (5 cols on desktop) */}
-        <div className="lg:col-span-5 p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-surface/20 relative overflow-hidden min-w-0">
+        {/* Right Column: HeroApiPanel (5 cols on desktop, stacks below CTAs on mobile) */}
+        <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-surface/20 relative overflow-hidden min-w-0">
           {/* Dot Grid Background */}
           <div
-            className="absolute inset-0 opacity-25 pointer-events-none text-text-muted"
+            className="absolute inset-0 opacity-20 pointer-events-none text-text-muted"
             style={{
               backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
               backgroundSize: "16px 16px",
@@ -102,43 +93,9 @@ export function Hero() {
             aria-hidden="true"
           />
 
-          {/* Faint MS Monogram Watermark behind tags */}
-          <div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
-            aria-hidden="true"
-          >
-            <span className="font-display text-[140px] sm:text-[180px] lg:text-[220px] font-bold text-text/[0.07] leading-none tracking-tighter">
-              {siteConfig.identity.monogram}
-            </span>
-          </div>
-
-          {/* Bordered "stack at a glance" Panel */}
-          <div className="relative z-10 border border-border rounded-lg bg-surface/80 backdrop-blur-xs p-5 sm:p-6 space-y-4 my-auto">
-            <div className="flex items-center justify-between border-b border-border/60 pb-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-accent font-semibold">
-                {"// STACK"}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted">
-                AT A GLANCE
-              </span>
-            </div>
-
-            <div className="flex flex-wrap gap-2 pt-1">
-              {coreStack.map((tech) => (
-                <Tag
-                  key={tech}
-                  variant="default"
-                  className="text-xs px-2.5 py-1 bg-bg/80 border-border text-text font-mono hover:border-accent/50 transition-colors"
-                >
-                  {tech}
-                </Tag>
-              ))}
-            </div>
-
-            <div className="pt-2 font-mono text-[11px] text-text-muted border-t border-border/40 flex items-center justify-between">
-              <span>DATABASE TO BROWSER</span>
-              <span className="text-accent font-medium">CORE TOOLKIT</span>
-            </div>
+          {/* HeroApiPanel Component */}
+          <div className="relative z-10 w-full my-auto">
+            <HeroApiPanel />
           </div>
 
           {/* Mobile Bottom Scroll Cue */}
@@ -153,7 +110,7 @@ export function Hero() {
               </span>
             </a>
             <span className="text-[11px] text-text-muted tracking-wider">
-              {siteConfig.identity.name} · PORTFOLIO 2026
+              {siteConfig.identity.name}
             </span>
           </div>
         </div>

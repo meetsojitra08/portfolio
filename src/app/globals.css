@@ -122,6 +122,21 @@ body {
   }
 }
 
+/* HeroApiPanel CSS line typing reveal */
+@keyframes api-panel-stream {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.api-panel-reveal {
+  clip-path: inset(0 0 0 0);
+  animation: api-panel-stream 1.8s steps(20, end) both;
+}
+
 /* Universal keyboard focus indicator */
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -137,6 +152,11 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .api-panel-reveal {
+    animation: none !important;
+    clip-path: none !important;
   }
 
   .cursor-blink {

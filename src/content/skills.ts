@@ -10,6 +10,15 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export const coreStack: string[] = [
+  "Python",
+  "Django",
+  "FastAPI",
+  "React",
+  "TypeScript",
+  "PostgreSQL",
+];
+
 export const skillCategories: SkillCategory[] = [
   {
     index: "01",

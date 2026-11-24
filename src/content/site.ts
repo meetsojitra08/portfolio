@@ -44,6 +44,7 @@ export interface SiteConfig {
     name: string;
     title: string;
     location: string;
+    city: string;
     email: string;
     github: string;
     linkedin: string;
@@ -92,6 +93,7 @@ export const siteConfig: SiteConfig = {
     name: "Meet Sojitra",
     title: "Full Stack Developer",
     location: "Ahmedabad, India (UTC +5:30)",
+    city: "Ahmedabad, India",
     email: "meetsojitra314@gmail.com",
     github: "https://github.com/meetsojitra08",
     linkedin: "https://www.linkedin.com/in/meet-sojitra-8375a032a",
