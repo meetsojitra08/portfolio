@@ -1,16 +1,19 @@
 import * as React from "react";
-import Image from "next/image";
 import { ArrowUpRight, ArrowDown, Download } from "lucide-react";
 import { siteConfig } from "@/content/site";
-import { projects } from "@/content/projects";
 import { Button } from "@/components/ui/Button";
-import { TextLink } from "@/components/ui/TextLink";
 import { Tag } from "@/components/ui/Tag";
-import { SectionLabel } from "@/components/SectionLabel";
+
+const coreStack = [
+  "PYTHON",
+  "DJANGO",
+  "FASTAPI",
+  "REACT",
+  "TYPESCRIPT",
+  "POSTGRESQL",
+];
 
 export function Hero() {
-  const pickwise = projects[0];
-
   return (
     <section className="relative border-b border-border bg-bg" id="hero">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-56px)]">
@@ -70,8 +73,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Bottom Scroll Cue */}
-          <div className="pt-6 border-t border-border/40 flex items-center justify-between font-mono text-xs text-text-muted">
+          {/* Bottom Scroll Cue (Desktop) */}
+          <div className="hidden lg:flex pt-6 border-t border-border/40 items-center justify-between font-mono text-xs text-text-muted">
             <a
               href="#projects"
               className="inline-flex items-center gap-2 hover:text-accent transition-colors group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
@@ -87,105 +90,71 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Featured Project Card (PickWise) (5 cols on desktop) */}
-        <div className="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between bg-surface/30 space-y-6 min-w-0">
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <SectionLabel label="featured project" number="01" />
-              <Tag variant="accent" className="self-start sm:self-auto shrink-0 normal-case">
-                {pickwise.highlight || "~350 ms recommendations"}
-              </Tag>
+        {/* Right Column: Stack at a glance panel on dot grid (5 cols on desktop) */}
+        <div className="lg:col-span-5 p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-surface/20 relative overflow-hidden min-w-0">
+          {/* Dot Grid Background */}
+          <div
+            className="absolute inset-0 opacity-25 pointer-events-none text-text-muted"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+              backgroundSize: "16px 16px",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Faint MS Monogram Watermark behind tags */}
+          <div
+            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+            aria-hidden="true"
+          >
+            <span className="font-display text-[140px] sm:text-[180px] lg:text-[220px] font-bold text-text/[0.07] leading-none tracking-tighter">
+              {siteConfig.identity.monogram}
+            </span>
+          </div>
+
+          {/* Bordered "stack at a glance" Panel */}
+          <div className="relative z-10 border border-border rounded-lg bg-surface/80 backdrop-blur-xs p-5 sm:p-6 space-y-4 my-auto">
+            <div className="flex items-center justify-between border-b border-border/60 pb-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-accent font-semibold">
+                {"// STACK"}
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted">
+                AT A GLANCE
+              </span>
             </div>
 
-            <div className="border border-border rounded-lg bg-surface/80 p-5 space-y-4">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h2 className="font-display text-xl uppercase tracking-wider text-text">
-                    {pickwise.title}
-                  </h2>
-                  <p className="font-mono text-xs text-text-muted mt-1 leading-relaxed line-clamp-3">
-                    {pickwise.description}
-                  </p>
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-2 pt-1">
+              {coreStack.map((tech) => (
+                <Tag
+                  key={tech}
+                  variant="default"
+                  className="text-xs px-2.5 py-1 bg-bg/80 border-border text-text font-mono hover:border-accent/50 transition-colors"
+                >
+                  {tech}
+                </Tag>
+              ))}
+            </div>
 
-              {/* Project Image Frame (16:10 aspect ratio) */}
-              <div className="relative aspect-[16/10] w-full rounded border border-border bg-bg overflow-hidden group hover:border-text-muted transition-colors">
-                {pickwise.image ? (
-                  <Image
-                    src={pickwise.image}
-                    alt="PickWise AI product decision platform preview"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 450px"
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transform-none"
-                  />
-                ) : (
-                  <div className="absolute inset-0 p-4 flex flex-col justify-between font-mono text-xs">
-                    <div className="flex items-center justify-between text-[10px] text-text-muted">
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                        LIVE DECISION MATRIX
-                      </span>
-                      <span>AI VERIFIED</span>
-                    </div>
-
-                    <div className="space-y-2 text-center py-4">
-                      <div className="font-display text-lg text-accent uppercase tracking-wider">
-                        PICKWISE
-                      </div>
-                      <div className="text-[11px] text-text-muted font-mono">
-                        Query → DB Verified Side-by-Side Comparisons
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between text-[10px] text-accent">
-                      <span>FASTAPI / REACT</span>
-                      <span>~350 MS RESPONSE</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {pickwise.tags.map((tag) => (
-                  <Tag key={tag} variant="default">
-                    {tag}
-                  </Tag>
-                ))}
-              </div>
-
-              {/* 3-item Meta Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 border-t border-border/60 pt-3 text-center font-mono text-[10px] uppercase tracking-wider">
-                <div className="sm:border-r border-border/60 sm:pr-2 flex sm:block justify-between items-center py-1 sm:py-0 border-b sm:border-b-0 border-border/40">
-                  <span className="text-text-muted block text-[9px]">ROLE</span>
-                  <span className="text-text font-medium truncate block">
-                    {pickwise.featuredMeta?.role || "Full-stack"}
-                  </span>
-                </div>
-                <div className="sm:border-r border-border/60 sm:pr-2 flex sm:block justify-between items-center py-1 sm:py-0 border-b sm:border-b-0 border-border/40">
-                  <span className="text-text-muted block text-[9px]">STACK</span>
-                  <span className="text-text font-medium truncate block">FastAPI / React</span>
-                </div>
-                <div className="flex sm:block justify-between items-center py-1 sm:py-0">
-                  <span className="text-text-muted block text-[9px]">STATUS</span>
-                  <span className="text-accent font-medium truncate block">
-                    ● {pickwise.status}
-                  </span>
-                </div>
-              </div>
+            <div className="pt-2 font-mono text-[11px] text-text-muted border-t border-border/40 flex items-center justify-between">
+              <span>DATABASE TO BROWSER</span>
+              <span className="text-accent font-medium">CORE TOOLKIT</span>
             </div>
           </div>
 
-          {/* Action Link Row */}
-          <div className="flex items-center justify-between pt-2">
-            <TextLink href={pickwise.live || "#"} external>
-              VIEW PROJECT
-            </TextLink>
-            <TextLink href={pickwise.github || "#"} external>
-              GITHUB
-            </TextLink>
+          {/* Mobile Bottom Scroll Cue */}
+          <div className="lg:hidden relative z-10 pt-6 mt-4 border-t border-border/40 flex items-center justify-between font-mono text-xs text-text-muted">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 hover:text-accent transition-colors group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+            >
+              <ArrowDown className="w-3.5 h-3.5 text-accent transition-transform group-hover:translate-y-0.5 motion-reduce:transform-none" />
+              <span className="uppercase tracking-widest text-[11px]">
+                scroll to explore
+              </span>
+            </a>
+            <span className="text-[11px] text-text-muted tracking-wider">
+              {siteConfig.identity.name} · PORTFOLIO 2026
+            </span>
           </div>
         </div>
       </div>
