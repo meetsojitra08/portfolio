@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { departureMono, jetbrainsMono } from "./fonts";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { CursorEffect } from "@/components/CursorEffect";
 import { siteConfig } from "@/content/site";
 import "./globals.css";
 
@@ -113,6 +114,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <CursorEffect />
           {children}
         </ThemeProvider>
       </body>
