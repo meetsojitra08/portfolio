@@ -106,7 +106,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-bg text-text font-mono antialiased selection:bg-accent selection:text-accent-ink min-h-screen overflow-x-hidden w-full">
+      <body className="bg-bg text-text font-mono antialiased selection:bg-accent selection:text-accent-ink min-h-screen">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -12,7 +12,7 @@ export function Hero() {
   const pickwise = projects[0];
 
   return (
-    <section className="relative border-b border-border bg-bg overflow-x-hidden" id="hero">
+    <section className="relative border-b border-border bg-bg" id="hero">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-56px)]">
         {/* Left Column (7 cols on desktop) */}
         <div className="lg:col-span-7 p-6 sm:p-10 lg:p-14 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border space-y-10 min-w-0">

@@ -11,12 +11,12 @@ import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-bg text-text selection:bg-accent selection:text-accent-ink flex flex-col overflow-x-hidden w-full">
+    <div className="min-h-screen bg-bg text-text selection:bg-accent selection:text-accent-ink flex flex-col">
       {/* Sticky Header with Accessible Mobile Menu */}
       <Header />
 
       {/* Main Content Landmark */}
-      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none overflow-x-hidden w-full">
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
         {/* 1. Hero Section */}
         <Hero />
 
