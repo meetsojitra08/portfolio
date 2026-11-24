@@ -1,0 +1,89 @@
+import * as React from "react";
+import { siteConfig } from "@/content/site";
+import { SectionLabel } from "@/components/SectionLabel";
+
+export function About() {
+  return (
+    <section className="border-b border-border bg-bg" id="about">
+      {/* Header Bar */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 border-b border-border flex items-center justify-between">
+        <SectionLabel label="about" number="developer" />
+        <span className="font-mono text-[11px] uppercase tracking-wider text-text-muted">
+          ENGINEERING ETHOS & PROFILE
+        </span>
+      </div>
+
+      {/* Three-Cell Row */}
+      <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-b border-border">
+        {/* Cell 1: Big Quote Headline (4 cols) */}
+        <div className="lg:col-span-4 p-6 sm:p-10 border-b lg:border-b-0 lg:border-r border-border flex flex-col justify-between bg-surface/20 space-y-6">
+          <div className="space-y-4">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-accent block">
+              {"// PRINCIPLE"}
+            </span>
+            <blockquote className="font-display text-2xl sm:text-3xl text-text leading-snug uppercase tracking-tight">
+              &ldquo;{siteConfig.about.quote}&rdquo;
+            </blockquote>
+          </div>
+          <div className="font-mono text-xs text-text-muted border-t border-border/40 pt-4">
+            MEET SOJITRA · FULL STACK DEVELOPER
+          </div>
+        </div>
+
+        {/* Cell 2: Bio + 3 Stats (5 cols) */}
+        <div className="lg:col-span-5 p-6 sm:p-10 border-b lg:border-b-0 lg:border-r border-border flex flex-col justify-between space-y-8">
+          <div className="space-y-4">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted block">
+              {"// BACKGROUND"}
+            </span>
+            <p className="font-mono text-sm sm:text-base text-text-muted leading-relaxed">
+              {siteConfig.about.bio}
+            </p>
+          </div>
+
+          {/* 3 Stats Grid */}
+          <div className="grid grid-cols-3 gap-3 border-t border-border pt-6">
+            {siteConfig.about.stats.map((stat) => (
+              <div key={stat.label} className="border border-border/60 p-3 rounded bg-surface/40">
+                <div className="font-display text-xl sm:text-2xl text-accent font-bold">
+                  {stat.value}
+                </div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-text-muted mt-1 leading-tight">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Cell 3: MS Monogram Tile on Dot Grid (3 cols) */}
+        <div className="lg:col-span-3 p-6 sm:p-10 flex flex-col items-center justify-center bg-surface/30 relative overflow-hidden min-h-[300px]">
+          {/* Subtle Dot Grid Background */}
+          <div
+            className="absolute inset-0 opacity-25"
+            style={{
+              backgroundImage:
+                "radial-gradient(var(--text-muted) 1px, transparent 1px)",
+              backgroundSize: "16px 16px",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Monogram Card */}
+          <div className="relative z-10 w-32 h-32 rounded-lg border border-border bg-bg/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center shadow-lg space-y-2">
+            <div className="font-display text-4xl font-bold text-accent tracking-wider">
+              {siteConfig.identity.monogram}
+            </div>
+            <div className="font-mono text-[9px] uppercase tracking-wider text-text-muted">
+              AHMEDABAD, IN
+            </div>
+          </div>
+
+          <div className="relative z-10 font-mono text-[10px] uppercase tracking-wider text-text-muted text-center mt-6">
+            PYTHON &bull; FASTAPI &bull; REACT
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
