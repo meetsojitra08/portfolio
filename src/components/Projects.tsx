@@ -32,8 +32,8 @@ export function Projects() {
               live={project.live}
               github={project.github}
               flip={idx % 2 === 1}
-              aspectRatio={project.id === "bugsence" ? "aspect-[1024/463]" : "aspect-[16/10]"}
-              imageClassName={project.id === "bugsence" ? "object-cover object-top" : "object-cover object-top"}
+              aspectRatio="aspect-[1024/463]"
+              imageClassName="object-cover object-top"
             />
           </Reveal>
         ))}
