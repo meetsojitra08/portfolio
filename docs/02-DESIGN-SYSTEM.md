@@ -52,9 +52,29 @@ The hero H1 ends with a **blinking underscore cursor** (`full-stack developer_`)
 On mobile: monogram + hamburger → full-screen menu. Menu must trap focus and close on `Esc`.
 
 ### Hero
-Two-column bordered grid.
-- Left: H1 with cursor, one-line subhead, availability row (`● OPEN TO FULL-TIME ROLES | ⌖ AHMEDABAD, INDIA | UTC +5:30`), `↓ scroll to explore`.
-- Right: "selected project" card (PickWise) with screenshot, title, `VIEW PROJECT ↗`, and a 3-item meta row (`ROLE / STACK / STATUS`).
+Simple, centered, and bold. No project card, no 3D, no screenshots.
+
+Layout: full viewport height (min 560px), everything centered, inside the same 1px outer frame as the rest of the site.
+- Top: small availability row, centered: `● OPEN TO FULL-TIME ROLES  |  ⌖ AHMEDABAD, INDIA  |  UTC +5:30`
+- Center: H1 `full-stack developer_` in the display font, **typed out once** on load, then the cursor blinks. Subhead below (one line, muted, max ~48ch).
+- Below: two CTAs side by side: `Email me` (primary, juicy) and `Download resume` (secondary).
+- Bottom center: `↓ SCROLL TO EXPLORE`.
+
+**Typing effect**
+- Types at ~70ms/char (total ≈ 1.5s), then a blinking underscore cursor (1s steps).
+- The full text is in the DOM from the start (visually revealed with a CSS/JS typing effect) with `aria-label="full-stack developer"` so screen readers read it once. No layout shift: reserve the final width/height.
+- Under `prefers-reduced-motion`: show the full text instantly, no blink.
+
+**Code background ("random coding" layer)**
+- A full-bleed layer behind the hero content showing real-looking code snippets from Meet's stack, in 3–4 slow columns drifting upward (CSS `translateY` keyframes, duplicated content for a seamless loop, 60–90s per loop, columns at slightly different speeds).
+- Snippets (generic, illustrative, not claims about projects): a FastAPI route, a Django model + serializer, a React component with a hook, a SQL query with a trigram index, a Redis cache call, a git log / terminal commands. Use the mono font at 12–13px.
+- Looks: very low contrast (`--text` at ~7–10% opacity), with a few tokens highlighted in `--accent` at ~25%. A **radial mask** (`mask-image: radial-gradient`) fades the code out near the center so the headline stays perfectly readable, and a vertical fade at the top and bottom edges.
+- Optional cursor spotlight (desktop only): a soft radial highlight follows the pointer (CSS variables `--mx/--my`), brightening the code slightly under the cursor.
+- `aria-hidden="true"`, `pointer-events: none`, not selectable, not focusable.
+- Both themes: in light mode use `--text` at ~6–8% and the darker accent; verify the headline contrast over the layer.
+- Performance: pure CSS/DOM, no canvas or library, ~2–3KB of text per column. Animate only `transform`. Pause the animation when the hero is off-screen (IntersectionObserver toggles a class).
+- Mobile: 2 columns, smaller font, no spotlight.
+- Reduced motion: static (no drift), same faded look.
 
 ### Project rows (only 2: PickWise, BugSence)
 With just two projects, each row is taller and more generous than the reference. Add a highlight stat line (`~350 ms recommendations`, `< 2 s ticket generation`) in the accent color.

@@ -25,7 +25,7 @@ inspired by a reference portfolio (see `docs/02-DESIGN-SYSTEM.md`). **Inspiratio
 4. **Do not expose the phone number** on the site. Email + LinkedIn + GitHub only.
 5. **Content lives in data files** (`/src/content/*.ts`), not hardcoded in components.
 6. **Accessibility is not optional**: WCAG AA contrast, keyboard navigable, visible focus rings, semantic HTML, `prefers-reduced-motion` respected.
-7. **Performance budget**: Lighthouse ≥ 95 on Performance, Accessibility, Best Practices, SEO (mobile).
+7. **Performance budget**: Lighthouse ≥ 95 on Performance, Accessibility, Best Practices, SEO (mobile). The hero background must never block or delay content.
 8. **Keep it simple.** Prefer fewer dependencies. Ask before adding any library not listed in `04-TECH-SPEC.md`.
 9. **Dark theme is default**; light theme is supported via toggle (both must look intentional).
 10. After each phase in `05-BUILD-PLAN.md`: run `lint`, `typecheck`, `build`, then summarize what changed and what's left. Stop and wait for my go-ahead before starting the next phase.

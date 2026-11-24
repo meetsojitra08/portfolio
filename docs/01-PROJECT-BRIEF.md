@@ -17,7 +17,7 @@ The reference is a numbered, bordered-grid, one-page site. We keep the *structur
 
 | Reference section (freelancer) | Our section (job seeker) | Change |
 |---|---|---|
-| Hero: "full-stack web developer_" + featured project card | Hero: same typed-cursor headline + featured project card (PickWise) | Status badge says "Open to full-time roles" |
+| Hero: "full-stack web developer_" + featured project card | Hero: simple, centered typed headline over a faint code-themed background (no project card, no 3D) | Status badge says "Open to full-time roles" |
 | Selected projects (6, alternating image/text) | Selected projects (2, alternating) | Only PickWise and BugSence, each given a larger, richer row |
 | About + stats + logo tile | About + stats + "MS" monogram tile | Stats come from the resume only |
 | Services (3 cols) | **Skills / What I do** (3 cols) | Backend · Frontend · Data & Tools |

@@ -21,7 +21,7 @@ Always start a session with: *"Read AGENTS.md and the docs it references, then d
 
 ## Phase 2 — Header, Hero, Footer shell
 **Prompt:**
-> Build Header (sticky, nav anchors, availability tag, Resume primary button, theme toggle, accessible mobile menu), Hero (H1 with blinking cursor, subhead, availability row, featured PickWise card), and Footer/Contact CTA. Use content from `/content`. Match the bordered-grid layout from the design system.
+> Build Header (sticky, nav anchors, availability tag, Resume primary button, theme toggle, accessible mobile menu), Hero (simple and centered: availability row, H1 typed once with blinking cursor, subhead, Email me + Download resume buttons, scroll hint, and the faint code-snippet background layer from the design system; no project card, no 3D), and Footer/Contact CTA. Use content from `/content`. Match the bordered-grid layout from the design system.
 
 **Done when:** responsive 360–1920px, keyboard navigable, menu traps focus and closes on Esc.
 

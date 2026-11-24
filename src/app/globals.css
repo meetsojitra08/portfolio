@@ -120,21 +120,26 @@ body {
     animation: none !important;
     opacity: 1 !important;
   }
+
+  .hero-drift-column {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
-/* HeroApiPanel CSS line typing reveal */
-@keyframes api-panel-stream {
+/* HeroCodeBackground upward drift animation */
+@keyframes drift-up {
   0% {
-    clip-path: inset(0 0 100% 0);
+    transform: translateY(0);
   }
   100% {
-    clip-path: inset(0 0 0 0);
+    transform: translateY(-50%);
   }
 }
 
-.api-panel-reveal {
-  clip-path: inset(0 0 0 0);
-  animation: api-panel-stream 1.8s steps(20, end) both;
+.hero-drift-column {
+  animation: drift-up linear infinite;
+  will-change: transform;
 }
 
 /* Universal keyboard focus indicator */
@@ -154,14 +159,14 @@ body {
     scroll-behavior: auto !important;
   }
 
-  .api-panel-reveal {
-    animation: none !important;
-    clip-path: none !important;
-  }
-
   .cursor-blink {
     animation: none !important;
     opacity: 1 !important;
+  }
+
+  .hero-drift-column {
+    animation: none !important;
+    transform: none !important;
   }
 
   .btn-juicy-primary,

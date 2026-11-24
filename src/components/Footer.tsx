@@ -125,8 +125,6 @@ export function Footer() {
                 </span>
               </a>
             </div>
-
-
           </div>
         </Reveal>
       </div>

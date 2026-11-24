@@ -20,10 +20,36 @@ All facts come from Meet's resume and links. Use verbatim or lightly tightened. 
 - Description: Full Stack Developer in Ahmedabad building REST APIs and React interfaces with Python, Django, FastAPI, and PostgreSQL. See PickWise, BugSence, and production work.
 
 ## Hero
-- H1: `full-stack developer_`
+- H1 (typed once, then cursor): `full-stack developer_`
 - Subhead: `I build reliable APIs and clear React interfaces, from database to browser.`
 - Meta row: `OPEN TO FULL-TIME ROLES` · `AHMEDABAD, INDIA` · `UTC +5:30`
-- Featured card: **PickWise** (see projects). Meta: `ROLE: Full-stack` · `STACK: FastAPI / React` · `STATUS: Live`
+- CTAs: `EMAIL ME` (primary) · `DOWNLOAD RESUME` (secondary)
+- Scroll hint: `SCROLL TO EXPLORE`
+- Background code snippets (illustrative, decorative; keep short and generic, no real company or project code):
+```python
+@router.get("/products/{id}")
+async def get_product(id: int, db: Session = Depends(get_db)):
+    return await crud.get_product(db, id)
+```
+```python
+class Ticket(models.Model):
+    title = models.CharField(max_length=200)
+    status = models.CharField(default="open")
+    created_at = models.DateTimeField(auto_now_add=True)
+```
+```tsx
+const [items, setItems] = useState<Item[]>([]);
+useEffect(() => { api.get("/items").then(setItems); }, []);
+```
+```sql
+CREATE INDEX idx_title_trgm ON tickets USING gin (title gin_trgm_ops);
+SELECT * FROM tickets WHERE title % 'checkout error';
+```
+```bash
+$ git commit -m "feat: add role-based access control"
+$ pytest -q && npm run build
+```
+> Add a few more of similar size (Redis cache get/set, a Pydantic model, a Tailwind class list) so the columns feel varied.
 
 ## Selected projects (`selected projects / 02`)
 
@@ -115,3 +141,24 @@ July 2025 – Feb 2026 · Ahmedabad
 - Sub: `Open to full-time Full Stack / Python / React roles. I reply within a day.` (TODO(meet): confirm you want to promise this)
 - Link rows: `GITHUB ↗` · `LINKEDIN ↗` · `EMAIL ↗`
 - Bottom bar: `© 2026 Meet Sojitra` · `Built with Next.js` · `BACK TO TOP ↑`
+
+### API panel (Contact section, right side)
+- Title: `GET /developer` · Status line: `HTTP/1.1 200 OK`
+- JSON (facts from resume only; do not add keys):
+```json
+{
+  "name": "Meet Sojitra",
+  "role": "Full Stack Developer",
+  "location": "Ahmedabad, India",
+  "experience": "1+ years",
+  "stack": {
+    "backend": ["Python", "Django", "FastAPI"],
+    "frontend": ["React", "TypeScript"],
+    "data": ["PostgreSQL", "Redis"]
+  },
+  "projects": ["PickWise", "BugSence"],
+  "status": "open_to_full_time_roles",
+  "contact": "meetsojitra314@gmail.com"
+}
+```
+- Behavior: types in once, `COPY JSON` button, project names link to `#projects`, email is a `mailto:` link. Render as real text in `<pre><code>`; respect reduced motion.

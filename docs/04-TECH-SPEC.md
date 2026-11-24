@@ -25,7 +25,7 @@
   /components
     Header.tsx  Hero.tsx  ProjectRow.tsx  Projects.tsx  About.tsx
     Skills.tsx  Process.tsx  Experience.tsx  Education.tsx  Contact.tsx  Footer.tsx
-    ThemeToggle.tsx  SectionLabel.tsx  Reveal.tsx
+    ThemeToggle.tsx  SectionLabel.tsx  Reveal.tsx  HeroCodeBackground.tsx  Typewriter.tsx  ApiPanel.tsx
     /ui  Button.tsx  TextLink.tsx  Tag.tsx
   /content
     site.ts  projects.ts  experience.ts  skills.ts   (typed data from 03-CONTENT.md)
@@ -39,6 +39,15 @@
 - `ProjectRow`: props `{ index, title, description, highlight, tags, image, live, github, flip }`.
 - `Reveal`: wraps children, once-only IntersectionObserver, no-op under reduced motion.
 - All content typed (`type Project = {...}`) and imported from `/content`.
+
+## HeroCodeBackground & Typewriter
+- `HeroCodeBackground`: server component rendering snippet columns from `/content/codeSnippets.ts`; CSS keyframes for drift; a tiny client wrapper only for the cursor spotlight and the off-screen pause (IntersectionObserver). No canvas, no libraries.
+- `Typewriter`: small client component; full text rendered in DOM with an `aria-label`; reserve final dimensions to avoid layout shift.
+
+## ApiPanel (Contact section)
+- Takes a typed `profile` object from `/content/site.ts` and renders pretty-printed JSON as real text. Syntax highlighting is done with small `<span>`s and CSS tokens (no highlighting library).
+- Client component only for the typing reveal and the copy button (`navigator.clipboard`, with a fallback). Everything else is static.
+- Single source of truth: the JSON shown must be generated from the same data used elsewhere, so it can't drift from the rest of the site.
 
 ## Data shape (projects.ts)
 ```ts
