@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root,
+.dark,
+[data-theme="dark"] {
+  --bg: #0B0C0B;
+  --surface: #101210;
+  --border: rgba(255, 255, 255, 0.10);
+  --text: #EDEDE8;
+  --text-muted: #8C8F88;
+  --accent: #B6F24A;
+  --accent-ink: #0B0C0B;
+}
+
+.light,
+[data-theme="light"] {
+  --bg: #EFEFE9;
+  --surface: #F6F6F1;
+  --border: rgba(0, 0, 0, 0.12);
+  --text: #111211;
+  --text-muted: #5E615B;
+  --accent: #4D7400; /* Darker lime tuned for WCAG AA compliance against light bg */
+  --accent-ink: #FFFFFF;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-display: var(--font-departure-mono), var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+/* Base resets & typography */
+html {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Primary Juicy Button */
+.btn-juicy-primary {
+  background-color: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 120ms ease-out, filter 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+.btn-juicy-primary:hover:not(:disabled),
+.btn-juicy-hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-juicy-primary:active:not(:disabled),
+.btn-juicy-active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition-duration: 60ms;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: border-color 120ms ease-out, background-color 120ms ease-out, transform 120ms ease-out;
+}
+
+.btn-secondary:hover:not(:disabled),
+.btn-secondary-hover {
+  border-color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.light .btn-secondary:hover:not(:disabled),
+.light .btn-secondary-hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:active:not(:disabled),
+.btn-secondary-active {
+  transform: translateY(1px);
+  transition-duration: 60ms;
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .btn-juicy-primary,
+  .btn-juicy-primary:hover:not(:disabled),
+  .btn-juicy-primary:active:not(:disabled),
+  .btn-juicy-hover,
+  .btn-juicy-active,
+  .btn-secondary,
+  .btn-secondary:hover:not(:disabled),
+  .btn-secondary:active:not(:disabled),
+  .btn-secondary-hover,
+  .btn-secondary-active {
+    transform: none !important;
+    transition: none !important;
+  }
+}
