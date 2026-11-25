@@ -13,11 +13,11 @@ All facts come from Meet's resume and links. Use verbatim or lightly tightened. 
 - Phone: **do not display on site**
 - Monogram: `MS`
 - Availability tag: `OPEN TO FULL-TIME ROLES`
-- Resume file: `/public/Meet-Sojitra-Resume.pdf` (TODO(meet): add the PDF)
+- Resume file: `/public/Meet-Sojitra-Resume.pdf`
 
 ## Meta
 - `<title>`: Meet Sojitra — Full Stack Developer (Python, Django, FastAPI, React)
-- Description: Full Stack Developer in Ahmedabad building REST APIs and React interfaces with Python, Django, FastAPI, and PostgreSQL. See PickWise, BugSence, and production work.
+- Description: Full Stack Developer in Ahmedabad building REST APIs and React interfaces with Python, Django, FastAPI, Ruby on Rails, and PostgreSQL. See PickWise, BugSense, and production work.
 
 ## Hero
 - H1 (typed once, then cursor): `full-stack developer_`
@@ -54,32 +54,32 @@ $ pytest -q && npm run build
 ## Selected projects (`selected projects / 02`)
 
 ### 01 — PICKWISE
-- Description: An AI-powered product decision platform. It turns a natural-language query into database-verified, side-by-side product comparisons, cutting purchase research from hours to seconds.
-- Highlight: Recommendation processing in about **350 ms**.
+- Description: An AI-powered shopping platform with budget-aware product recommendations, typo-tolerant search, and side-by-side comparisons. Validates suggestions against catalog data to prevent fabricated recommendations.
+- Highlight: Catalog-validated AI recommendations.
 - Tags: `FASTAPI` `REACT` `TYPESCRIPT` `POSTGRESQL` `REDIS`
 - Live: https://pick-wise-roan.vercel.app/
 - GitHub: https://github.com/meetsojitra08/PickWise
 - Status: Live
-- Image: TODO(meet): screenshot of live site (1440×900)
+- Image: `/public/images/pickwise.webp`
 
-### 02 — BUGSENCE
-- Description: An AI-powered issue tracker that converts raw error logs and stack traces into structured, prioritized tickets in under 2 seconds. Detects duplicates with PostgreSQL trigram search and triages bugs automatically with Groq LLMs.
-- Highlight: Ticket generation in **under 2 seconds**.
+### 02 — BUGSENSE
+- Description: A full-stack AI bug tracking platform with Groq-powered issue triage, duplicate detection, and a drag-and-drop Kanban board. Auto-fills issue details from stack traces in under 2 seconds.
+- Highlight: Stack-trace auto-fill in **under 2 seconds**.
 - Tags: `REACT` `TYPESCRIPT` `DJANGO REST` `PYDANTIC` `POSTGRESQL`
 - Live: https://bugsence-lilac.vercel.app/
 - GitHub: https://github.com/meetsojitra08/bugsence
 - Status: Live
-- Image: TODO(meet): screenshot of live site (1440×900)
+- Image: `/public/images/bugsence.webp`
 
 > Only these two projects appear on the site. Do not add others.
 > Footer link under the list: `VIEW ALL PROJECTS ↗` → https://github.com/meetsojitra08?tab=repositories
 
 ## About (`about / developer`)
 - Quote: `I turn real requirements into dependable software.`
-- Bio: `I'm Meet Sojitra, a full-stack developer in Ahmedabad with 1+ year of professional experience. I build REST APIs, manage PostgreSQL data, integrate third-party services, and ship React interfaces that stay maintainable as they grow. I also use AI coding tools (Claude Code, Codex) to move faster without lowering the bar.`
+- Bio: `I'm Meet Sojitra, a full-stack developer in Ahmedabad with a background in Ruby on Rails and hands-on experience with Python, Django, FastAPI, and React.js. I build RESTful APIs, manage relational and Redis data, integrate third-party services, and ship responsive web applications—using AI coding tools (Claude Code, Codex) to move faster without lowering the bar.`
 - Stats (from resume only):
-  - `1+` / `YEARS EXPERIENCE`
-  - `2` / `AI PRODUCTS SHIPPED` (PickWise, BugSence)
+  - `1` / `YEAR EXPERIENCE`
+  - `2` / `AI PRODUCTS SHIPPED` (PickWise, BugSense)
   - `B.Tech IT` / `2021–2025` — alternative if a third stat is needed
 
 ## Skills (`skills / what I do`)
@@ -87,22 +87,22 @@ $ pytest -q && npm run build
 Designing and building APIs and business logic.
 - Python, Django, Django REST Framework, FastAPI
 - Ruby on Rails
-- Authentication, authorization, role-based access control
-- Data validation (Pydantic), third-party integrations
+- Authentication & authorization, RESTful APIs
+- Flask, data validation (Pydantic)
 
 **02 — FRONTEND**
 Responsive interfaces that stay easy to maintain.
 - React.js, TypeScript, JavaScript
 - Tailwind CSS, HTML5, CSS3
-- Reusable component libraries
-- Frontend ↔ API integration
+- Responsive web application development
+- Frontend ↔ REST API integration
 
 **03 — DATA & WORKFLOW**
 Storing data well and shipping it cleanly.
 - PostgreSQL, MySQL, Redis, SQL
-- RESTful API design, MVC, OOP
+- RESTful APIs, MVC Architecture, OOP
 - Git, GitHub, Linux
-- AI coding tools (Claude Code, Codex)
+- Claude Code, Codex
 
 ## How I work (`process / how I work`)
 1. **UNDERSTAND** — Clarify the problem, users, and constraints before writing code.
@@ -112,27 +112,27 @@ Storing data well and shipping it cleanly.
 
 ## Experience (`experience / where I've worked`)
 
-### Mantham Technologies — Software Developer (Full-Time)
-June 2026 – Nov 2026 · Surat / Remote
-- Developed custom web application modules using Python, Django, Django REST Framework, and React.
-- Implemented REST APIs, authentication, business logic, and database integrations.
-- Built reusable React components and responsive interfaces for business applications.
-- Integrated frontend workflows with backend services and managed application data in PostgreSQL.
-- Implemented data validation, database operations, and role-based access control.
-- Resolved application issues and improved API reliability, code maintainability, and performance.
-
 ### Essence Solusoft — Software Intern & Developer (Full-Time)
-July 2025 – Feb 2026 · Ahmedabad
-- Built task and sprint workflows with custom status automation, real-time search, and synchronization.
-- Added idle-time monitoring and performance dashboards for employee productivity tracking.
-- Streamlined HR operations: attendance, leave management, and recruitment workflows.
-- Integrated Slack and Firebase APIs for automated notifications, hour logging, and collaboration.
-- Developed Shopify bundle features: Build Your Box, Buy Together, checkout previews, variant selection.
-- Implemented subscription-based bundle limits, Shopify discount functionality, and analytics optimizations; resolved production issues.
+Jul 2025 – Feb 2026 · Ahmedabad
+- Engineered task and sprint workflows with custom status automation, real-time search, and synchronization.
+- Enhanced employee productivity tracking through idle-time monitoring and performance dashboards.
+- Streamlined HR operations, including attendance, leave management, and recruitment workflows.
+- Integrated Slack and Firebase APIs for automated notifications, hour logging, and project collaboration.
+- Developed Shopify bundle features, including Build Your Box, Buy Together, checkout previews, and variant selection.
+- Implemented subscription-based bundle limits, Shopify discount functionality, and analytics optimizations while resolving production issues.
+
+### Acespritech Solutions Pvt. Ltd. — Python Developer Intern
+Jan 2025 – Apr 2025 · Gandhinagar
+- Assisted in developing backend functionality using Python.
+- Worked with Django and Flask to understand and implement web application features.
+- Assisted in developing and testing REST APIs.
+- Performed basic database operations using SQL.
+- Debugged application issues and fixed minor errors under team guidance.
+- Used Git and GitHub for version control and collaborative development.
 
 ## Education & Certifications (compact row)
 - **B.Tech, Information Technology** — Institute of Advanced Research, Gandhinagar · 2021–2025 · CGPA 7.9
-- Full Stack Web Development Mastery — Udemy (2024)
+- Full Stack Web Development Mastery Course — Udemy (2024)
 - Python Fundamentals for Beginners — Great Learning (2023)
 - Power BI Data Analytics for All Levels 3.0 — Codebasics (2025)
 
@@ -150,13 +150,13 @@ July 2025 – Feb 2026 · Ahmedabad
   "name": "Meet Sojitra",
   "role": "Full Stack Developer",
   "location": "Ahmedabad, India",
-  "experience": "1+ years",
+  "experience": "1 year",
   "stack": {
-    "backend": ["Python", "Django", "FastAPI"],
+    "backend": ["Python", "Django", "FastAPI", "Ruby on Rails"],
     "frontend": ["React", "TypeScript"],
     "data": ["PostgreSQL", "Redis"]
   },
-  "projects": ["PickWise", "BugSence"],
+  "projects": ["PickWise", "BugSense"],
   "status": "open_to_full_time_roles",
   "contact": "meetsojitra314@gmail.com"
 }

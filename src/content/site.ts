@@ -104,7 +104,7 @@ export const siteConfig: SiteConfig = {
   meta: {
     title: "Meet Sojitra — Full Stack Developer (Python, Django, FastAPI, React)",
     description:
-      "Full Stack Developer in Ahmedabad building REST APIs and React interfaces with Python, Django, FastAPI, and PostgreSQL. See PickWise, BugSence, and production work.",
+      "Full Stack Developer in Ahmedabad building REST APIs and React interfaces with Python, Django, FastAPI, Ruby on Rails, and PostgreSQL. See PickWise, BugSense, and production work.",
     url: "https://meetsojitra.dev",
   },
   navigation: [
@@ -130,9 +130,9 @@ export const siteConfig: SiteConfig = {
   },
   about: {
     quote: "I turn real requirements into dependable software.",
-    bio: "I'm Meet Sojitra, a full-stack developer in Ahmedabad with 1+ year of professional experience. I build REST APIs, manage PostgreSQL data, integrate third-party services, and ship React interfaces that stay maintainable as they grow. I also use AI coding tools (Claude Code, Codex) to move faster without lowering the bar.",
+    bio: "I'm Meet Sojitra, a full-stack developer in Ahmedabad with a background in Ruby on Rails and hands-on experience with Python, Django, FastAPI, and React.js. I build RESTful APIs, manage relational and Redis data, integrate third-party services, and ship responsive web applications—using AI coding tools (Claude Code, Codex) to move faster without lowering the bar.",
     stats: [
-      { value: "1+", label: "YEARS EXPERIENCE" },
+      { value: "1", label: "YEAR EXPERIENCE" },
       { value: "2", label: "AI PRODUCTS SHIPPED" },
       { value: "B.Tech", label: "IT · 2021–2025" },
     ],
@@ -168,7 +168,7 @@ export const siteConfig: SiteConfig = {
   },
   certifications: [
     {
-      title: "Full Stack Web Development Mastery",
+      title: "Full Stack Web Development Mastery Course",
       issuer: "Udemy",
       year: "2024",
     },

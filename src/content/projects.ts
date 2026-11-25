@@ -32,8 +32,8 @@ export const projects: Project[] = [
     name: "PickWise",
     scope: "SOLO · FULL-STACK · 2025",
     description:
-      "An AI-powered product decision platform. It turns a natural-language query into database-verified, side-by-side product comparisons, cutting purchase research from hours to seconds.",
-    highlight: "~350 ms recommendations",
+      "An AI-powered shopping platform with budget-aware product recommendations, typo-tolerant search, and side-by-side comparisons. Validates suggestions against catalog data to prevent fabricated recommendations.",
+    highlight: "Catalog-validated AI",
     tags: ["FASTAPI", "REACT", "TYPESCRIPT", "POSTGRESQL", "REDIS"],
     live: "https://pick-wise-roan.vercel.app/",
     github: "https://github.com/meetsojitra08/PickWise",
@@ -48,12 +48,12 @@ export const projects: Project[] = [
   {
     id: "bugsence",
     index: "02",
-    title: "BUGSENCE",
-    name: "BugSence",
+    title: "BUGSENSE",
+    name: "BugSense",
     scope: "SOLO · FULL-STACK · 2025",
     description:
-      "An AI-powered issue tracker that converts raw error logs and stack traces into structured, prioritized tickets in under 2 seconds. Detects duplicates with PostgreSQL trigram search and triages bugs automatically with Groq LLMs.",
-    highlight: "< 2 s ticket generation",
+      "A full-stack AI bug tracking platform with Groq-powered issue triage, duplicate detection, and a drag-and-drop Kanban board. Auto-fills issue details from stack traces in under 2 seconds.",
+    highlight: "< 2 s stack-trace auto-fill",
     tags: ["REACT", "TYPESCRIPT", "DJANGO REST", "PYDANTIC", "POSTGRESQL"],
     live: "https://bugsence-lilac.vercel.app/",
     github: "https://github.com/meetsojitra08/bugsence",

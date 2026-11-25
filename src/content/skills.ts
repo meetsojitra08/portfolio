@@ -31,9 +31,9 @@ export const skillCategories: SkillCategory[] = [
     description: "Designing and building APIs and business logic.",
     skills: [
       { name: "Python, Django, Django REST Framework, FastAPI", primary: true },
-      { name: "Authentication, authorization, role-based access control", primary: true },
-      { name: "Data validation (Pydantic), third-party integrations", primary: true },
-      { name: "Ruby on Rails", primary: false },
+      { name: "Ruby on Rails", primary: true },
+      { name: "Authentication & authorization, RESTful APIs", primary: true },
+      { name: "Flask, data validation (Pydantic)", primary: false },
     ],
   },
   {
@@ -43,8 +43,8 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "React.js, TypeScript, JavaScript", primary: true },
       { name: "Tailwind CSS, HTML5, CSS3", primary: true },
-      { name: "Frontend ↔ API integration", primary: true },
-      { name: "Reusable component libraries", primary: false },
+      { name: "Responsive web application development", primary: true },
+      { name: "Frontend ↔ REST API integration", primary: false },
     ],
   },
   {
@@ -52,11 +52,10 @@ export const skillCategories: SkillCategory[] = [
     title: "DATA & WORKFLOW",
     description: "Storing data well and shipping it cleanly.",
     skills: [
-      { name: "PostgreSQL, Redis, SQL", primary: true },
-      { name: "RESTful API design, MVC, OOP", primary: true },
+      { name: "PostgreSQL, MySQL, Redis, SQL", primary: true },
+      { name: "RESTful APIs, MVC Architecture, OOP", primary: true },
       { name: "Git, GitHub, Linux", primary: true },
-      { name: "AI coding tools (Claude Code, Codex)", primary: true },
-      { name: "MySQL", primary: false },
+      { name: "Claude Code, Codex", primary: true },
     ],
   },
 ];

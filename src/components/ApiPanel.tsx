@@ -35,13 +35,13 @@ export function ApiPanel() {
       name: siteConfig.identity.name,
       role: siteConfig.identity.title,
       location: siteConfig.identity.city,
-      experience: `${siteConfig.about.stats[0]?.value || "1+"} years`,
+      experience: "1 year",
       stack: {
-        backend: ["Python", "Django", "FastAPI"],
+        backend: ["Python", "Django", "FastAPI", "Ruby on Rails"],
         frontend: ["React", "TypeScript"],
         data: ["PostgreSQL", "Redis"],
       },
-      projects: ["PickWise", "BugSence"],
+      projects: ["PickWise", "BugSense"],
       status: "open_to_full_time_roles",
       contact: siteConfig.identity.email,
     }),
@@ -222,9 +222,9 @@ export function ApiPanel() {
                 <a
                   href="#projects"
                   className="text-accent hover:underline underline-offset-2 decoration-accent/60 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded"
-                  title="View BugSence project"
+                  title="View BugSense project"
                 >
-                  &quot;BugSence&quot;
+                  &quot;BugSense&quot;
                 </a>
               </div>
             )}
